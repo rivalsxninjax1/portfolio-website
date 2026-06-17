@@ -1,827 +1,1524 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sabin Sharma | Cybersecurity Threat Analyst</title>
+    <meta
+      content="Sabin Sharma – Cybersecurity student, ethical hacker, penetration tester from Biratnagar, Nepal."
+      name="description"
+    />
+    <meta
+      content="cybersecurity, ethical hacking, penetration testing, CTF, Nepal, Sabin Sharma"
+      name="keywords"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sabin Acharya</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+      /* ─── Cybersecurity colour overrides ─────────────────────────────────── */
+      :root {
+        --accent: #00ff88; /* terminal green */
+        --accent-dim: #00cc6a;
+        --bg-dark: #0a0f1e; /* deep navy-black */
+        --bg-panel: #0d1526;
+        --bg-light: #111d35;
+        --text-main: #c8d8f0;
+        --text-dim: #6b8aad;
+        --border: #1e3050;
+        --font-mono: "Share Tech Mono", monospace;
+      }
 
-</head>
+      /* Sidebar / header */
+      #header {
+        background: var(--bg-dark) !important;
+        border-right: 1px solid var(--border);
+      }
+      #header .sitename {
+        font-family: var(--font-mono);
+        color: var(--accent);
+        letter-spacing: 2px;
+        font-size: 1.1rem;
+      }
+      #header .navmenu ul li a {
+        color: var(--text-main);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+      #header .navmenu ul li a:hover,
+      #header .navmenu ul li a.active {
+        color: var(--accent);
+      }
+      #header .social-links a {
+        color: var(--text-dim);
+      }
+      #header .social-links a:hover {
+        color: var(--accent);
+      }
 
-<body class="index-page">
+      /* Hero */
+      #hero {
+        background: var(--bg-dark);
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(0, 255, 136, 0.03) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(0, 255, 136, 0.03) 40px
+          );
+        pointer-events: none;
+      }
+      #hero h2 {
+        font-family: var(--font-mono);
+        color: var(--accent);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+      #hero p {
+        color: var(--text-main);
+      }
+      #hero p .typed {
+        color: var(--accent);
+        font-family: var(--font-mono);
+      }
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+      /* Sections */
+      .section {
+        background: var(--bg-panel);
+        color: var(--text-main);
+      }
+      .section.light-background {
+        background: var(--bg-light);
+      }
+      .section-title h2 {
+        font-family: var(--font-mono);
+        color: var(--accent);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+      }
+      .section-title p {
+        color: var(--text-dim);
+      }
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.JPG" alt="" class="img-fluid rounded-circle">
-    </div>
+      /* About info list */
+      .about .content h2 {
+        color: var(--accent);
+        font-family: var(--font-mono);
+      }
+      .about .content ul li i {
+        color: var(--accent);
+      }
+      .about .content ul li span {
+        color: var(--text-main);
+      }
+      .about .content strong {
+        color: var(--accent-dim);
+      }
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-    
-      <h1 class="sitename">Sabin Acharya</h1>
-    </a>
+      /* Stats */
+      .stats {
+        background: var(--bg-dark);
+      }
+      .stats-item i {
+        color: var(--accent);
+      }
+      .stats-item span {
+        color: var(--accent);
+      }
+      .stats-item p strong {
+        color: var(--text-main);
+      }
+      .stats-item p span {
+        color: var(--text-dim);
+      }
 
-    <div class="social-links text-center">
-      <a href="https://x.com/rivalsxninjax1?s=21" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="https://www.facebook.com/sabinac007/" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/rivalsxninjax/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="https://www.linkedin.com/in/sabin-sharma-33a58b250/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
+      /* Skills progress bars */
+      .skills {
+        background: var(--bg-light);
+      }
+      .skills .progress-bar {
+        background: var(--accent);
+      }
+      .skills .skill span {
+        color: var(--text-main);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+      .skills .val {
+        color: var(--accent);
+      }
+      /* Resume */
+      .resume .section-title h2 {
+        color: var(--accent) !important;
+      }
+      .resume-title {
+        color: var(--accent);
+        font-family: var(--font-mono);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 700;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .resume-item h4 {
+        color: var(--accent-dim);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .resume-item h5 {
+        background: rgba(0, 255, 136, 0.08);
+        color: var(--accent);
+        border: 1px solid var(--border);
+        padding: 2px 10px;
+        display: inline-block;
+        border-radius: 3px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+      }
+      .resume-item p,
+      .resume-item ul li {
+        color: var(--text-dim);
+      }
+      .resume-item em {
+        color: var(--text-main);
+      }
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+      /* Portfolio */
+      .portfolio-filters li.filter-active,
+      .portfolio-filters li:hover {
+        color: var(--accent);
+      }
+      .portfolio-info h4 {
+        color: var(--bg-dark);
+      }
+      .portfolio-info a {
+        color: var(--bg-dark);
+      }
 
-        <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li> -->
+      /* Write-ups section */
+      #writeups {
+        background: var(--bg-dark);
+      }
+      #writeups .writeup-card {
+        background: var(--bg-panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 20px;
+        transition: border-color 0.3s;
+      }
+      #writeups .writeup-card:hover {
+        border-color: var(--accent);
+      }
+      #writeups .writeup-card .tag {
+        background: rgba(0, 255, 136, 0.1);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin-right: 6px;
+        display: inline-block;
+        margin-bottom: 6px;
+      }
+      #writeups .writeup-card h4 {
+        color: var(--text-main);
+        margin: 10px 0 6px;
+      }
+      #writeups .writeup-card p {
+        color: var(--text-dim);
+        font-size: 0.88rem;
+        margin: 0;
+      }
+      #writeups .writeup-card .date {
+        color: var(--text-dim);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        margin-top: 12px;
+        display: block;
+      }
+      #writeups .writeup-card a.read-more {
+        font-family: var(--font-mono);
+        color: var(--accent);
+        font-size: 0.8rem;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+      }
+      #writeups .writeup-card a.read-more:hover {
+        text-decoration: underline;
+      }
 
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
+      /* Services */
+      .services .service-item .icon i {
+        color: var(--accent) !important;
+      }
+      .services .service-item .title a {
+        color: var(--text-main);
+      }
+      .services .service-item .title a:hover {
+        color: var(--accent);
+      }
+      .services .service-item .description {
+        color: var(--text-dim);
+      }
 
-  </header>
+      /* Contact */
+      .contact .info-item i {
+        color: var(--accent);
+      }
+      .contact .info-item h3 {
+        color: var(--text-main);
+      }
+      .contact .info-item p {
+        color: var(--text-dim);
+      }
+      .contact .php-email-form input,
+      .contact .php-email-form textarea {
+        background: var(--bg-dark);
+        border: 1px solid var(--border);
+        color: var(--text-main);
+      }
+      .contact .php-email-form input:focus,
+      .contact .php-email-form textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.15);
+      }
+      .contact .php-email-form button[type="submit"] {
+        background: var(--accent);
+        color: var(--bg-dark);
+        font-family: var(--font-mono);
+        font-weight: 700;
+        border: none;
+        letter-spacing: 1px;
+      }
+      .contact .php-email-form button[type="submit"]:hover {
+        background: var(--accent-dim);
+      }
+      .contact label {
+        color: var(--text-dim);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
 
-  <main class="main">
+      /* Footer */
+      #footer {
+        background: var(--bg-dark) !important;
+        color: var(--text-dim);
+        border-top: 1px solid var(--border);
+      }
+      #footer .copyright p {
+        color: var(--text-dim);
+      }
+      #footer .credits {
+        color: var(--text-dim);
+      }
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+      /* Scroll top */
+      #scroll-top {
+        background: var(--accent);
+        color: var(--bg-dark);
+      }
 
-      <img src="assets/img/medium-shot-man-wearing-vr-glasses.jpg" alt="" data-aos="fade-in" class="">
+      /* Terminal cursor blink for hero typed */
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      .typed-cursor {
+        color: var(--accent);
+        animation: blink 1s step-end infinite;
+      }
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>SABIN ACHARYA</h2>
-        <p>I'm <span class="typed" data-typed-items="Software Developer, AI Engineer, Data Science Enthusiastic">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+      /* Writeup "coming soon" placeholder */
+      .writeup-placeholder {
+        text-align: center;
+        padding: 40px;
+        color: var(--text-dim);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        border: 1px dashed var(--border);
+        border-radius: 6px;
+      }
+      .writeup-placeholder i {
+        font-size: 2rem;
+        color: var(--border);
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      /* Nav – TryHackMe badge icon */
+      .bi-person-badge {
+        color: inherit;
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header dark-background d-flex flex-column">
+      <i class="header-toggle d-xl-none bi bi-list"></i>
+
+      <div class="profile-img">
+        <img
+          src="assets/img/my-profile-img.PNG"
+          alt="Sabin Sharma"
+          class="img-fluid"
+        />
       </div>
 
-    </section><!-- /Hero Section -->
+      <a
+        href="index.html"
+        class="logo d-flex align-items-center justify-content-center"
+      >
+        <h1 class="sitename">ninjax</h1>
+      </a>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+      <div class="social-links text-center">
+        <a
+          href="https://x.com/rivalsxninjax1"
+          class="twitter"
+          title="X / Twitter"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/sabinac007/"
+          class="facebook"
+          title="Facebook"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/rivalsxninjax/"
+          class="instagram"
+          title="Instagram"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/sabin-sharma-33a58b250/"
+          class="linkedin"
+          title="LinkedIn"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a href="https://tryhackme.com" class="google-plus" title="TryHackMe"
+          ><i class="bi bi-shield-fill-check"></i
+        ></a>
+        <a href="https://github.com/rivalsxninjax1" title="GitHub"
+          ><i class="bi bi-github"></i
+        ></a>
+      </div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I’m a software developer with a strong passion for data science and artificial intelligence. I enjoy creating efficient, user-focused applications and exploring how data and AI can be used to solve meaningful problems. With experience in full-stack development and a growing skill set in machine learning and data analysis, I love combining code with creativity to build smart, scalable solutions. I’m always learning, experimenting, and looking for new challenges that push the boundaries of what technology can do.</p>
-      </div><!-- End Section Title -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li>
+            <a href="#hero" class="active"
+              ><i class="bi bi-terminal navicon"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="#about"><i class="bi bi-person navicon"></i> About</a>
+          </li>
+          <li>
+            <a href="#resume"
+              ><i class="bi bi-file-earmark-text navicon"></i> Resume</a
+            >
+          </li>
+          <li>
+            <a href="#portfolio"><i class="bi bi-grid navicon"></i> Projects</a>
+          </li>
+          <li>
+            <a href="#writeups"
+              ><i class="bi bi-journal-code navicon"></i> Write-ups</a
+            >
+          </li>
+          <li>
+            <a href="#services"
+              ><i class="bi bi-shield-lock navicon"></i> Services</a
+            >
+          </li>
+          <li>
+            <a href="#contact"
+              ><i class="bi bi-envelope navicon"></i> Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <main class="main">
+      <!-- ───── Hero ───── -->
+      <section id="hero" class="hero section dark-background">
+        <!-- Animated canvas background – no image needed -->
+        <canvas id="hero-canvas"></canvas>
 
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <h2>SABIN SHARMA</h2>
+          <p>
+            I'm
+            <span
+              class="typed"
+              data-typed-items="a Cybersecurity Researcher.,an Information Security Student.,studying Digital Threat Analysis.,interested in Cyber Policy & Governance.,a Security-Minded Developer.,exploring Vulnerability Research.,committed to Safer Digital Infrastructure.,a Future Cybersecurity Professional.,bridging Technology and Policy.,building skills for a Secure Digital World."
+            ></span>
+          </p>
+        </div>
+
+        <script>
+          (function () {
+            const canvas = document.getElementById("hero-canvas");
+            const ctx = canvas.getContext("2d");
+
+            function resize() {
+              canvas.width = canvas.offsetWidth;
+              canvas.height = canvas.offsetHeight;
+              initDrops();
+            }
+            window.addEventListener("resize", resize);
+
+            const fontSize = 16;
+            const chars = "01アイウエカキクケコサシスセソ{}[]<>/\\#@!;:=+-*%$";
+
+            let drops = [];
+
+            function initDrops() {
+              drops = [];
+              const cols = Math.floor(canvas.width / (fontSize * 1.6));
+              for (let i = 0; i < cols; i++) {
+                drops.push({
+                  x: i * fontSize * 1.6,
+                  y: Math.random() * -800, // stagger start off-screen
+                  speed: 1 + Math.random() * 0.5, // very slow — water drip pace
+                  length: 6 + Math.floor(Math.random() * 10),
+                  opacity: 0.4 + Math.random() * 0.5,
+                  charTimer: 0,
+                  charInterval: 4 + Math.floor(Math.random() * 8), // how often char changes
+                  frame: 0,
+                  trail: [], // stores {char, alpha} per cell
+                });
+              }
+            }
+
+            function randomChar() {
+              return chars[Math.floor(Math.random() * chars.length)];
+            }
+
+            // Pre-fill trails
+            function initTrails() {
+              drops.forEach((d) => {
+                d.trail = [];
+                for (let i = 0; i < d.length; i++) {
+                  d.trail.push({ char: randomChar() });
+                }
+              });
+            }
+
+            resize();
+            initTrails();
+
+            let lastTime = 0;
+
+            function draw(ts) {
+              const dt = ts - lastTime;
+              lastTime = ts;
+
+              // Very slow fade — creates long glowing tail
+              ctx.fillStyle = "rgba(10, 15, 30, 0.10)";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+              ctx.shadowBlur = 0;
+              ctx.shadowColor = "transparent";
+
+              drops.forEach((d) => {
+                d.frame++;
+
+                // Randomly mutate one character in the trail for flicker effect
+                if (d.frame % d.charInterval === 0) {
+                  const idx = Math.floor(Math.random() * d.trail.length);
+                  d.trail[idx].char = randomChar();
+                }
+
+                // Draw each cell in the trail
+                for (let i = 0; i < d.trail.length; i++) {
+                  const cellY = d.y - i * fontSize;
+                  if (cellY < -fontSize || cellY > canvas.height + fontSize)
+                    continue;
+
+                  // Head = bright white-green, tail fades to dim green
+                  const progress = i / d.trail.length;
+
+                  if (i === 0) {
+                    // Glowing bright head
+                    ctx.shadowBlur = 4;
+                    ctx.shadowColor = "#00ff88";
+                    ctx.fillStyle = `rgba(220, 255, 240, ${d.opacity})`;
+                  } else {
+                    ctx.shadowBlur = 0;
+                    ctx.shadowColor = "transparent";
+                    // Exponential fade — looks like water surface tension
+                    const alpha = d.opacity * Math.pow(1 - progress, 1.4);
+                    ctx.fillStyle = `rgba(0, 255, 136, ${alpha})`;
+                  }
+
+                  ctx.font = `${fontSize}px "Share Tech Mono", monospace`;
+                  ctx.fillText(d.trail[i].char, d.x, cellY);
+                }
+
+                // Move drop down slowly
+                d.y += d.speed;
+
+                // Reset when fully off screen — random delay so they don't all reset together
+                if (d.y - d.trail.length * fontSize > canvas.height) {
+                  d.y = -Math.random() * 600;
+                  d.speed = 0.3 + Math.random() * 0.5;
+                  d.trail.forEach((t) => (t.char = randomChar()));
+                }
+              });
+
+              requestAnimationFrame(draw);
+            }
+
+            requestAnimationFrame(draw);
+          })();
+        </script>
+      </section>
+
+      <!-- ───── About ───── -->
+      <section id="about" class="about section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>About</h2>
+          <p>
+           <p>
+  Final-year Bachelor of Computer Application student specialising in 
+  information security and cybersecurity governance. My academic work sits 
+  at the intersection of technology and public policy — including original 
+  undergraduate research on Nepal's institutional cybersecurity capacity 
+  and its implications for digital foreign policy at the Ministry of Foreign 
+  Affairs. I am driven by a commitment to building safer, more resilient 
+  digital infrastructure through rigorous research and responsible security 
+  practice.
+</p>
+          </p>
+        </div>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4 justify-content-center">
+            <div class="col-lg-4">
+              <img
+                src="assets/img/my-profile-img.png"
+                class="img-fluid"
+                alt="Sabin Sharma"
+              />
+            </div>
+            <div class="col-lg-8 content">
+              <h2>Information Security Student &amp; Cybersecurity Researcher</h2>
+              <p class="fst-italic py-3">
+                  Alongside my studies, I serve as a Python instructor at Nihareeka College 
+  of IT and Management, where I support students in developing foundational 
+  programming and problem-solving skills. I actively pursue structured 
+  self-directed learning through internationally recognised platforms 
+  including TryHackMe and PortSwigger Web Academy, and I document my 
+  progress publicly as part of a disciplined continuous learning initiative. 
+  I am seeking an opportunity to deepen my academic expertise in information 
+  security at the postgraduate level and contribute meaningfully to the 
+  growing field of cybersecurity research in Central and Eastern Europe.
+
+              </p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Phone:</strong> <span>+977 9742270999</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                      <span>Biratnagar, Nepal</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Available for:</strong>
+                      <span>Internships &amp; Freelance</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Degree:</strong> <span>BCA – 8th Semester</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Email:</strong> <span>sabinynwa@gmail.com</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>GitHub:</strong> <span>rivalsxninjax1</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-8 content">
-            <h2>Software Developer &amp; Data-science and AI Enthusiastic.</h2>
-            <p class="fst-italic py-3">
-              The following is my bio-data, prepared to give a clear overview of my background and capabilities.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
+        </div>
+      </section>
+
+      <!-- ───── Stats ───── -->
+      <section id="stats" class="stats section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item">
+                <i class="bi bi-flag-fill"></i>
+
+                <p>
+                  <strong>CTF </strong>
+                  <span>Capturing flags on challanges</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item">
+                <i class="bi bi-shield-fill-check"></i>
+
+                <p><strong>THM Rooms</strong> <span>complition</span></p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item">
+                <i class="bi bi-bug-fill"></i>
+                <p>
+                  <strong>Finding Vulnerabilities</strong>
+                  <span>found in lab environments</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item">
+                <i class="bi bi-journal-code"></i>
+                <p>
+                  <strong>Days of CyberSec</strong>
+                  <span>#100DaysChallenge</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── Skills ───── -->
+      <section id="skills" class="skills section light-background">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Skills</h2>
+          <p>
+            Tools, techniques, and domains I work with actively — built through
+            labs, CTFs, and real-world testing.
+          </p>
+        </div>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <style>
+            .skill-category {
+              margin-bottom: 30px;
+            }
+            .skill-category h5 {
+              font-family: var(--font-mono);
+              color: var(--accent);
+              font-size: 0.78rem;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              margin-bottom: 12px;
+              border-left: 3px solid var(--accent);
+              padding-left: 10px;
+            }
+            .skill-tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+            }
+            .skill-tag {
+              background: rgba(0, 255, 136, 0.07);
+              border: 1px solid rgba(0, 255, 136, 0.25);
+              color: var(--text-main);
+              font-family: var(--font-mono);
+              font-size: 0.78rem;
+              padding: 5px 12px;
+              border-radius: 3px;
+              transition:
+                border-color 0.2s,
+                color 0.2s;
+            }
+            .skill-tag:hover {
+              border-color: var(--accent);
+              color: var(--accent);
+            }
+          </style>
+
+          <div class="row gy-4">
+            <div class="col-lg-6">
+              <div class="skill-category">
+                <h5>Web Application Security</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">SQL Injection</span>
+                  <span class="skill-tag">XSS (Reflected / Stored / DOM)</span>
+                  <span class="skill-tag">IDOR</span>
+                  <span class="skill-tag">CSRF</span>
+                  <span class="skill-tag">Command Injection</span>
+                  <span class="skill-tag">Auth Bypass</span>
+                  <span class="skill-tag">Broken Access Control</span>
+                  <span class="skill-tag">Session Manipulation</span>
+                  <span class="skill-tag">File Upload Bypass</span>
+                  <span class="skill-tag">OWASP Top 10</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h5>Exploitation &amp; Post-Exploitation</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Metasploit Framework</span>
+                  <span class="skill-tag">Reverse Shells</span>
+                  <span class="skill-tag">Payload Delivery</span>
+                  <span class="skill-tag">Privilege Escalation</span>
+                  <span class="skill-tag">Shell Stabilisation</span>
+                  <span class="skill-tag">Exploit Research</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h5>Cryptography &amp; CTF</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">XOR / Known-Plaintext</span>
+                  <span class="skill-tag">RSA (RsaCtfTool)</span>
+                  <span class="skill-tag">Vigenère / Caesar</span>
+                  <span class="skill-tag">LFSR Stream Ciphers</span>
+                  <span class="skill-tag">flask-unsign</span>
+                  <span class="skill-tag">pwntools</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="skill-category">
+                <h5>Reconnaissance &amp; OSINT</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Nmap</span>
+                  <span class="skill-tag">Gobuster</span>
+                  <span class="skill-tag">ffuf</span>
+                  <span class="skill-tag">Sublist3r</span>
+                  <span class="skill-tag">Nikto</span>
+                  <span class="skill-tag">DirBuster</span>
+                  <span class="skill-tag">theHarvester</span>
+                  <span class="skill-tag">OSINT Frameworks</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h5>Password Attacks</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag"
+                    >Hashcat (MD5 / SHA-256 / bcrypt)</span
+                  >
+                  <span class="skill-tag">Hydra</span>
+                  <span class="skill-tag">CeWL</span>
+                  <span class="skill-tag">Wordlist Crafting</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h5>Tools &amp; Environment</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Burp Suite Pro</span>
+                  <span class="skill-tag">Kali Linux</span>
+                  <span class="skill-tag">Bash Scripting</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Git &amp; GitHub</span>
+                  <span class="skill-tag">Wireshark</span>
+                  <span class="skill-tag">DVWA</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h5>Documentation</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Vulnerability Reports</span>
+                  <span class="skill-tag">CVSS Scoring</span>
+                  <span class="skill-tag">Remediation Reporting</span>
+                  <span class="skill-tag">Risk Prioritisation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── Resume ───── -->
+      <section id="resume" class="resume section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Resume</h2>
+          <p>
+            Education, certifications, and professional experience in
+            cybersecurity and IT.
+          </p>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <!-- Left column -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Summary</h3>
+              <div class="resume-item pb-0">
+                <h4>Sabin Sharma</h4>
+                <p>
+                  <em
+                    >Final-year BCA student and self-directed cybersecurity
+                    practitioner. Skilled in web application security, network
+                    reconnaissance, exploitation frameworks, and vulnerability
+                    documentation. Actively completing TryHackMe's Jr
+                    Penetration Tester path and PortSwigger Web Academy
+                    labs.</em
+                  >
+                </p>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>22 June 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>shiny-sunburst-de5be8.netlify.app</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+977 9742270999</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Kathmandu, Nepal</span></li>
+                  <li>Biratnagar, Morang, Nepal</li>
+                  <li>+977 9742270999</li>
+                  <li>sabinynwa@gmail.com</li>
                 </ul>
               </div>
-              <div class="col-lg-6">
+
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>Bachelor in Computer Application (BCA)</h4>
+                <h5>2021 – Running (8th Semester)</h5>
+                <p>
+                  <em
+                    >Nihareeka College of IT and Management, Biratnagar,
+                    Morang</em
+                  >
+                </p>
+                <p>
+                  Focused on programming, networking fundamentals, and system
+                  security. Final-year research paper on Nepal's cybersecurity
+                  governance and its impact on the Ministry of Foreign Affairs'
+                  foreign policy capacity.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <h4>High School – Science (Computer)</h4>
+                <h5>Completed</h5>
+                <p><em>Xavier International College, Kalopul, Kathmandu</em></p>
+              </div>
+
+              <h3 class="resume-title">Certifications &amp; Achievements</h3>
+              <div class="resume-item">
+                <h4>Certificate of Participation</h4>
+                <p>
+                  <em>Koshi Mini Yantra Project Demonstration 01 &amp; 02</em>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Hackathon Certification</h4>
+                <p><em>HackAstra – Ranked among 92 out of 455 teams</em></p>
+              </div>
+            </div>
+
+            <!-- Right column -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="resume-title">Professional Experience</h3>
+              <div class="resume-item">
+                <h4>Python Trainer</h4>
+                <h5>2023 – 2025</h5>
+                <p>
+                  <em>Nihareeka College of IT and Management, Biratnagar</em>
+                </p>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>23</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors running</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li>
+                    Taught Python fundamentals through hands-on projects and
+                    practical exercises.
+                  </li>
+                  <li>
+                    Assisted students in understanding programming basics,
+                    problem-solving, and logical thinking.
+                  </li>
                 </ul>
               </div>
+
+              <h3 class="resume-title">Technical Skills</h3>
+              <div class="resume-item">
+                <h4>Web Application Security</h4>
+                <p>
+                  SQL Injection · XSS (Reflected, Stored, DOM) · IDOR · Command
+                  Injection · Broken Access Control · Auth Bypass · CSRF ·
+                  Session Manipulation · OWASP Top 10
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Exploitation &amp; Post-Exploitation</h4>
+                <p>
+                  Metasploit Framework · Reverse Shells · Payload Delivery ·
+                  File Upload Bypass · Privilege Escalation · Exploit Research
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Reconnaissance &amp; Tools</h4>
+                <p>
+                  Nmap · Burp Suite Pro · Gobuster · Sublist3r · DirBuster ·
+                  Nikto · Hydra · Hashcat · CeWL · ffuf
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Programming &amp; OS</h4>
+                <p>
+                  Python · Linux (Kali) · Bash Scripting · Git &amp; GitHub ·
+                  TCP/IP · DNS · HTTP/HTTPS
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Documentation</h4>
+                <p>
+                  Vulnerability Reports · Remediation Reporting · CVSS Scoring ·
+                  Risk Prioritization
+                </p>
+              </div>
             </div>
-            <p class="py-3">I have highlighted some of my work and experience below to provide a clear understanding of my skills, capabilities, and the projects I’ve been involved in. These examples reflect both my technical expertise and my ability to apply knowledge effectively in real-world situations.
-              
-               </p>
           </div>
         </div>
+      </section>
 
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="22" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Clients</strong> <span>with positive response</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-6 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="52" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> <span>solo and collabs.</span></p>
-            </div>
-          </div>
-
-          <!-- <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-            </div>
-          </div> -->
-
+      <!-- ───── Projects / Portfolio ───── -->
+      <!-- ───── Projects / Portfolio ───── -->
+      <section id="portfolio" class="portfolio section light-background">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Projects</h2>
+          <p>
+            Research, security tools, and software projects I have completed or
+            contributed to.
+          </p>
         </div>
 
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p> Following linebar represents my skills in different techs and tools</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Java</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>AI/ML</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-   <!-- Resume Section -->
-<section id="resume" class="resume section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Resume</h2>
-    <p>I have highlighted some of my work and experience below to give a clear understanding of my skills and contributions in the field of software development and data science. These reflect my journey, problem-solving capabilities, and collaborative efforts with both local and international teams.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="resume-title">Summary</h3>
-
-        <div class="resume-item pb-0">
-          <h4>Sabin Acharya</h4>
-          <p><em>Dedicated and results-driven Software Developer and Data Scientist with 3+ years of experience in building web applications, automating data workflows, and applying machine learning techniques to solve real-world problems.</em></p>
-          <ul>
-            <li>Kathmandu, Nepal</li>
-            <li>+977 9742270999</li>
-            <li>sabinynwa@gmail.com</li>
-          </ul>
-        </div><!-- End Resume Item -->
-
-        <h3 class="resume-title">Education</h3>
-        <div class="resume-item">
-          <h4>Diploma In Computer Networking</h4>
-          <h5>2018 - 2020</h5>
-          <p><em>Sydney College Of Management, Sydney, Austrilia</em></p>
-          <p>Focused on  network programming , building RMI based services, client-sever models etc.</p>
-        </div><!-- End Resume Item -->
-
-        <div class="resume-item">
-          <h4>Bachelor in  Computer Application</h4>
-          <h5>2020-running</h5>
-          <p><em>Nihareeka College Of Management and IT, Morang, Nepal</em></p>
-          <p>Built a strong foundation in software development, data structures, and algorithms. Fourth year project was a student performance prediction system using Python and scikit-learn.</p>
-        </div><!-- End Resume Item -->
-
-      </div>
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="resume-title">Professional Experience</h3>
-        <div class="resume-item">
-          <h4>Data Science Intern</h4>
-          <h5>2024 - Present</h5>
-          <p><em>CodeCatalyst GmbH, Berlin, Germany (Remote)</em></p>
-          <ul>
-            <li>Analyzed datasets using Python, Pandas, and SQL to derive insights for AI-based educational platforms.</li>
-            <li>Built machine learning models to classify user activity and improve user engagement features.</li>
-            <li>Assisted in cleaning and labeling large-scale datasets for deep learning applications.</li>
-            <li>Contributed to a team research paper on natural language understanding in Nepali language.</li>
-        
+        <div class="container">
+          <div
+            class="isotope-layout"
+            data-default-filter="*"
+            data-layout="masonry"
+            data-sort="original-order"
+          >
+            <ul
+              class="portfolio-filters isotope-filters"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-tool">Software</li>
+              <li data-filter=".filter-research">Research</li>
+              <li data-filter=".filter-creative">Creative</li>
             </ul>
-        </div><!-- End Resume Item -->
-
-        <div class="resume-item">
-          <h4>Remote Software Engineer (Full Stack)</h4>
-          <h5>2021-2024</h5>
-          <p><em>Fusemachines Nepal, Kathmandu, Nepal</em></p>
-          <ul> <li>Developed and maintained scalable SaaS applications using React, Node.js, and PostgreSQL.</li>
-            <li>Collaborated with cross-functional international teams using Agile methodologies and GitLab CI/CD workflows.</li>
-            <li>Implemented RESTful APIs and optimized backend performance by 30% through code refactoring.</li>
-            <li>Integrated third-party services such as Stripe, SendGrid, and AWS S3 for various client projects.</li>
-         
-             </ul>
-        </div><!-- End Resume Item -->
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section><!-- /Resume Section -->
 
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
+            
+            <div
+              class="row gy-4 isotope-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>The following are some of the projects I have worked on, contributed to, or collaborated with others on. These experiences reflect my involvement in diverse areas of software development and data science, showcasing my ability to work independently as well as in team environments to deliver meaningful solutions </p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Projects</li>
-           
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              <!-- Project 2 – Policy Paper -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-research"
+              >
+                <div class="proj-card">
+                  <div class="proj-header">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span class="proj-tag">Policy Research · Governance</span>
+                  </div>
+                  <h4>
+                    Nepal Cybersecurity Governance &amp; Foreign Policy Capacity
+                  </h4>
+                  <p>
+                    Undergraduate research paper examining institutional gaps in
+                    Nepal's cybersecurity governance framework and their
+                    downstream impact on the Ministry of Foreign Affairs'
+                    digital foreign policy capacity.
+                  </p>
+                  <div class="proj-footer">
+                    <span class="proj-type">Research</span>
+                    <a
+                      href="assets/docs/researchfinalpdf.pdf"
+                      target="_blank"
+                      title="View Research Paper"
+                    >
+                      <i class="bi bi-filetype-pdf"></i> View Paper
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              <!-- Project 1 – Gurukul AMS -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-tool"
+              >
+                <div class="proj-card">
+                  <div class="proj-header">
+                    <i class="bi bi-database-fill-gear"></i>
+                    <span class="proj-tag">Python · SQLite · PyQt5</span>
+                  </div>
+                  <h4>Gurukul Academy Management System</h4>
+                  <p>
+                    Desktop management system for a tuition centre in
+                    Biratnagar. Features Bikram Sambat date handling, Excel
+                    attendance import, PDF receipt generation, and Windows
+                    deployment via PyInstaller.
+                  </p>
+                  <div class="proj-footer">
+                    <span class="proj-type">Software</span>
+                    <a
+                      href="https://github.com/rivalsxninjax1/gurukul.git"
+                      target="_blank"
+                    >
+                      <i class="bi bi-github"></i> View on GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+              <!-- Project 3 – Cat's Cradle -->
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-creative">
+          <div class="proj-card">
+            <div class="proj-header">
+              <i class="bi bi-hand-index-fill"></i>
+              <span class="proj-tag">MediaPipe · Canvas API · JS</span>
+            </div>
+            <h4>Cat's Cradle — Hand Tracking Animation</h4>
+            <p>Single-file browser application using MediaPipe Hands and the Canvas API to render an interactive cat's cradle string animation with real-time hand tracking, particle effects, and a CRT visual overlay.</p>
+            <div class="proj-footer">
+              <span class="proj-type">Creative</span>
+              <a href="https://github.com/rivalsxninjax1" target="_blank">
+                <i class="bi bi-github"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div> -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+              <!-- Project 4 – DVWA Lab -->
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-research">
+          <div class="proj-card">
+            <div class="proj-header">
+              <i class="bi bi-shield-fill-check"></i>
+              <span class="proj-tag">Web Security · Lab Research</span>
+            </div>
+            <h4>Controlled Web Application Security Research</h4>
+            <p>Structured research environment using DVWA and PortSwigger Web Academy to study and document web application vulnerabilities including SQL injection variants, XSS, and access control flaws.</p>
+            <div class="proj-footer">
+              <span class="proj-type">Research</span>
+              <a href="#writeups">
+                <i class="bi bi-journal-code"></i> See Write-ups
+              </a>
+            </div>
+          </div>
+        </div> -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+              <!-- Project 5 – CTF Automation -->
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-tool">
+          <div class="proj-card">
+            <div class="proj-header">
+              <i class="bi bi-terminal-fill"></i>
+              <span class="proj-tag">Python · Scripting · Automation</span>
+            </div>
+            <h4>CTF Automation Scripts</h4>
+            <p>Python scripts for XOR known-plaintext attacks, LFSR stream cipher correlation attacks, and Sudoku-embedded protocol parsing (GridLock).</p>
+            <div class="proj-footer">
+              <span class="proj-type">Software</span>
+              <a href="https://github.com/rivalsxninjax1" target="_blank">
+                <i class="bi bi-github"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div> -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+              <!-- Project 6 – Portfolio Website -->
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-creative">
+          <div class="proj-card">
+            <div class="proj-header">
+              <i class="bi bi-code-slash"></i>
+              <span class="proj-tag">HTML · CSS · JavaScript</span>
+            </div>
+            <h4>Cybersecurity Portfolio Website</h4>
+            <p>This portfolio — built on iPortfolio (BootstrapMade) and fully redesigned with a dark terminal aesthetic, animated matrix canvas hero, custom skill tags, and a write-ups section.</p>
+            <div class="proj-footer">
+              <span class="proj-type">Creative</span>
+              <a href="https://github.com/rivalsxninjax1/portfolio-website" target="_blank">
+                <i class="bi bi-github"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
+      <!-- ───── Write-ups ───── -->
+      <section id="writeups" class="section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Write-ups</h2>
+          <p>
+            Security research notes and lab documentation. New entries added
+            regularly.
+          </p>
         </div>
 
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-<section id="services" class="services section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Services</h2>
-    <p>Here are the services I provide, based on my experience in full-stack development, data science, automation, and building intelligent solutions for real-world challenges.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">Web Application Development</a></h4>
-          <p class="description">Building responsive and scalable web apps using modern stacks like React, Node.js, and Django, tailored to your business goals.</p>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <!-- Write-up 1 -->
+            <!-- <div class="col-lg-4 col-md-6">
+        <div class="writeup-card">
+          <span class="tag">TryHackMe</span><span class="tag">SQLi</span>
+          <h4>Blind SQLi with Time-Based Exfil</h4>
+          <p>Walkthrough of time-based blind SQL injection using pg_sleep and conditional logic to extract credentials character by character.</p>
+          <span class="date"><i class="bi bi-calendar3"></i> #100DaysOfCybersecurity – Day 34</span>
+          <a href="#" class="read-more">Read write-up →</a>
         </div>
-      </div>
-      <!-- End Service Item -->
+      </div> -->
 
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon flex-shrink-0"><i class="bi bi-bar-chart-line"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">Data Analysis & Visualization</a></h4>
-          <p class="description">Extracting insights from raw data using Python, Pandas, and Matplotlib to support smarter decisions with clear visual dashboards.</p>
+            <!-- Write-up 2 -->
+            <!-- <div class="col-lg-4 col-md-6">
+        <div class="writeup-card">
+          <span class="tag">PortSwigger</span><span class="tag">XSS</span>
+          <h4>Stored XSS → Cookie Exfiltration via Burp Collaborator</h4>
+          <p>How I chained a stored XSS payload with Burp Collaborator to steal session tokens from a simulated admin user in DVWA.</p>
+          <span class="date"><i class="bi bi-calendar3"></i> #100DaysOfCybersecurity – Day 48</span>
+          <a href="#" class="read-more">Read write-up →</a>
         </div>
-      </div><!-- End Service Item -->
+      </div> -->
 
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">Machine Learning Models</a></h4>
-          <p class="description">Designing and training machine learning models to classify, predict, and automate tasks using tools like Scikit-learn and TensorFlow.</p>
+            <!-- Write-up 3 -->
+            <!-- <div class="col-lg-4 col-md-6">
+        <div class="writeup-card">
+          <span class="tag">CTF</span><span class="tag">Crypto</span>
+          <h4>AliBaba – LFSR Stream Cipher (Siegenthaler Attack)</h4>
+          <p>Breaking a multi-output LFSR stream cipher using correlation attacks and pwntools. Step-by-step from identifying the feedback polynomial to key recovery.</p>
+          <span class="date"><i class="bi bi-calendar3"></i> CTF Write-up</span>
+          <a href="#" class="read-more">Read write-up →</a>
         </div>
-      </div><!-- End Service Item -->
+      </div> -->
 
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-        <div class="icon flex-shrink-0"><i class="bi bi-diagram-3"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">API Development</a></h4>
-          <p class="description">Creating secure and scalable RESTful APIs for seamless data flow between services, apps, and platforms.</p>
+            <!-- Placeholder -->
+            <!-- <div class="col-lg-4 col-md-6">
+        <div class="writeup-placeholder">
+          <i class="bi bi-plus-circle"></i>
+          More write-ups coming soon.<br>Follow my <strong>#100DaysOfCybersecurity</strong> journey on LinkedIn.
         </div>
-      </div><!-- End Service Item -->
+      </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ───── Services ───── -->
+      <section id="services" class="services section light-background">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>
+            Security-focused services I offer based on my practical experience
+            in offensive security and web application testing.
+          </p>
+        </div>
+
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-4 col-md-6 service-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="icon flex-shrink-0">
+                <i class="bi bi-bug-fill"></i>
+              </div>
+              <div>
+                <h4 class="title">
+                  
+                    Web App Penetration Testing
+                  
+                </h4>
+                <p class="description">
+                  Manual and automated testing of web applications for OWASP Top
+                  10 vulnerabilities including SQLi, XSS, IDOR, and
+                  authentication flaws.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 service-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="icon flex-shrink-0"><i class="bi bi-search"></i></div>
+              <div>
+                <h4 class="title">
+                  Reconnaissance &amp; OSINT
+                </h4>
+                <p class="description">
+                  Active and passive information gathering using Nmap,
+                  Sublist3r, theHarvester, Shodan, and custom OSINT workflows.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 service-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="icon flex-shrink-0">
+                <i class="bi bi-file-earmark-text-fill"></i>
+              </div>
+              <div>
+                <h4 class="title">
+                  Vulnerability Reporting
+                </h4>
+                <p class="description">
+                  Clear, professional vulnerability reports with CVSS scoring,
+                  proof-of-concept steps, and prioritised remediation guidance.
+                </p>
+              </div>
+            </div>
+            <!-- 
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon flex-shrink-0"><i class="bi bi-terminal-fill"></i></div>
+          <div>
+            <h4 class="title"><a href="service-details.html" class="stretched-link">Security Scripting &amp; Automation</a></h4>
+            <p class="description">Python scripts for automated recon, wordlist generation (CeWL), login brute-forcing (Hydra/ffuf), and custom CTF challenge solvers.</p>
+          </div>
+        </div>
 
       <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-        <div class="icon flex-shrink-0"><i class="bi bi-cloud-arrow-down"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">Automation Scripts</a></h4>
-          <p class="description">Writing Python-based scripts to automate repetitive tasks such as data collection, formatting, email parsing, and report generation.</p>
+          <div class="icon flex-shrink-0"><i class="bi bi-mortarboard-fill"></i></div>
+          <div>
+            <h4 class="title"><a href="service-details.html" class="stretched-link">Security Awareness Training</a></h4>
+            <p class="description">Teaching developers, students, and non-technical staff about phishing, social engineering, and secure coding practices.</p>
+          </div>
         </div>
-      </div><!-- End Service Item -->
 
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-        <div class="icon flex-shrink-0"><i class="bi bi-shield-lock"></i></div>
-        <div>
-          <h4 class="title"><a href="service-details.html" class="stretched-link">System Integration & Security</a></h4>
-          <p class="description">Helping you connect systems and services securely, using best practices in authentication, encryption, and API security.</p>
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+          <div class="icon flex-shrink-0"><i class="bi bi-diagram-3-fill"></i></div>
+          <div>
+            <h4 class="title"><a href="service-details.html" class="stretched-link">CTF Mentorship</a></h4>
+            <p class="description">Guiding beginners through CTF platforms (TryHackMe, HTB), explaining cryptography, forensics, and web challenges in plain language.</p>
+          </div>
+        </div> -->
+          </div>
         </div>
-      </div><!-- End Service Item -->
+      </section>
 
-    </div>
+      <!-- ───── Contact ───── -->
+      <section id="contact" class="contact section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>
+            Open to internships, freelance engagements, collaborations, and CTF
+            team invitations.
+          </p>
+        </div>
 
-  </div>
-
-</section><!-- /Services Section -->
-
-
-   <!-- Testimonials Section -->
-<section id="testimonials" class="testimonials section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <p>Here’s what colleagues, clients, and mentors have said about working with me in various data science and software development projects.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="swiper init-swiper">
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": {
-              "slidesPerView": 1,
-              "spaceBetween": 40
-            },
-            "1200": {
-              "slidesPerView": 3,
-              "spaceBetween": 1
-            }
-          }
-        }
-      </script>
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Sabin was instrumental in designing a machine learning pipeline that helped us segment student performance metrics more efficiently. His approach was both innovative and well-documented.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Dr. Soph Meier</h3>
-            <h4>Data Science Lead, CodeCatalyst GmbH</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>I collaborated with Sabin on several SaaS development tasks at Fusemachines. His backend work, especially with Node.js and PostgreSQL, was reliable and highly optimized for production.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Ranjita Thapa</h3>
-            <h4>Senior Software Engineer, Fusemachines Nepal</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Sabin’s contribution to our educational AI tool exceeded our expectations. He handled complex data preprocessing tasks with ease and introduced efficient automation solutions.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>Alina Gurung</h3>
-            <h4>Project Manager, EdTech Nepal</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Sabin demonstrated excellent communication and problem-solving skills during our remote collaboration. He handled client requirements smoothly and delivered high-quality APIs.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Leon Müller</h3>
-            <h4>CTO, Berlin Softworks</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>I hired Sabin to build a dashboard for our small business in Morang. The end result was clean, responsive, and perfectly aligned with our needs. Highly recommended!</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>Prabin Karki</h3>
-            <h4>Entrepreneur</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-  </div>
-
-</section><!-- /Testimonials Section -->
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>You can contact me at the following:</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Koteshwor, Kathmandu, Nepal</p>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-5">
+              <div class="info-wrap">
+                <div
+                  class="info-item d-flex"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <i class="bi bi-geo-alt flex-shrink-0"></i>
+                  <div>
+                    <h3>Location</h3>
+                    <p>Biratnagar, Morang, Nepal</p>
+                  </div>
                 </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Us</h3>
-                  <p>+977 9742270999</p>
+                <div
+                  class="info-item d-flex"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <i class="bi bi-telephone flex-shrink-0"></i>
+                  <div>
+                    <h3>Phone</h3>
+                    <p>+977 9742270999</p>
+                  </div>
                 </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Me</h3>
-                  <p>sabinynwa@gmail.com</p>
+                <div
+                  class="info-item d-flex"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  <i class="bi bi-envelope flex-shrink-0"></i>
+                  <div>
+                    <h3>Email</h3>
+                    <p>sabinynwa@gmail.com</p>
+                  </div>
                 </div>
-              </div><!-- End Info Item -->
-
-              <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0060975788796!2d85.34872751492537!3d27.675934682803834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19924d1f2783%3A0x3db4f2923a7c8703!2sKoteshwor%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1718882532096!5m2!1sen!2snp" 
-              frameborder="0" 
-              style="border:0; width: 100%; height: 270px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-             </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                <div
+                  class="info-item d-flex"
+                  data-aos="fade-up"
+                  data-aos-delay="450"
+                >
+                  <i class="bi bi-github flex-shrink-0"></i>
+                  <div>
+                    <h3>GitHub</h3>
+                    <p>
+                      <a
+                        href="https://github.com/rivalsxninjax1"
+                        style="color: var(--accent)"
+                        >github.com/rivalsxninjax1</a
+                      >
+                    </p>
+                  </div>
                 </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.3!2d87.2744!3d26.4525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBiratnagar!5e0!3m2!1sen!2snp"
+                  frameborder="0"
+                  style="border: 0; width: 100%; height: 270px"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
               </div>
-            </form>
-          </div><!-- End Contact Form -->
+            </div>
 
-        </div>
+            <div class="col-lg-7">
+             <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form">
 
-      </div>
+  <input type="hidden" name="access_key" value="e94a9a36-7b99-456f-98b1-3f2509857cee">
+  <input type="hidden" name="subject" value="New Portfolio Contact — Sabin Sharma">
+  <input type="hidden" name="redirect" value="false">
+  <input type="hidden" name="from_name" value="Sabin Sharma Portfolio">
 
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename"></strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-      Designed by Sabin Acharya
-      </div>
+  <div class="row gy-4">
+    <div class="col-md-6">
+      <label for="name-field" class="pb-2">Your Name</label>
+      <input type="text" name="name" id="name-field" class="form-control" required>
     </div>
+    <div class="col-md-6">
+      <label for="email-field" class="pb-2">Your Email</label>
+      <input type="email" name="email" id="email-field" class="form-control" required>
+    </div>
+    <div class="col-md-12">
+      <label for="subject-field" class="pb-2">Subject</label>
+      <input type="text" name="subject" id="subject-field" class="form-control" required>
+    </div>
+    <div class="col-md-12">
+      <label for="message-field" class="pb-2">Message</label>
+      <textarea name="message" rows="10" id="message-field" class="form-control" required></textarea>
+    </div>
+    <div class="col-md-12 text-center">
+      <div class="loading">Loading</div>
+      <div class="error-message"></div>
+      <div class="sent-message">Message sent. Thank you!</div>
+      <button type="submit">Send Message</button>
+    </div>
+  </div>
 
-  </footer>
+</form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <footer id="footer" class="footer position-relative light-background">
+      <div class="container">
+        <div class="copyright text-center">
+          <p>
+            © <span>2025</span>
+            <strong class="px-1 sitename">Sabin Sharma</strong> · All Rights
+            Reserved
+          </p>
+        </div>
+        <div
+          class="credits text-center"
+          style="
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+          "
+        >
+          Designed by Sabin Sharma &nbsp;·&nbsp;
+        </div>
+      </div>
+    </footer>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-</body>
-
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
