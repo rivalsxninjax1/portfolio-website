@@ -1,337 +1,547 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sabin Sharma — Cybersecurity Student &amp; Researcher</title>
-<meta name="description" content="Sabin Sharma - Information Security student, penetration tester in training, and cybersecurity researcher based in Biratnagar, Nepal.">
-<meta name="keywords" content="cybersecurity, ethical hacking, penetration testing, information security, Nepal, Sabin Sharma">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabin Sharma — Cybersecurity Student &amp; Researcher</title>
+    <meta
+      name="description"
+      content="Sabin Sharma - Information Security student, penetration tester in training, and cybersecurity researcher based in Biratnagar, Nepal."
+    />
+    <meta
+      name="keywords"
+      content="cybersecurity, ethical hacking, penetration testing, information security, Nepal, Sabin Sharma"
+    />
 
-<link rel="icon" href="assets/img/favicon.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-<link href="assets/css/style.css" rel="stylesheet">
-</head>
-<body>
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <button
+      class="header-toggle"
+      id="header-toggle"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list"></i>
+    </button>
 
-<button class="header-toggle" id="header-toggle" aria-label="Toggle navigation"><i class="bi bi-list"></i></button>
-
-<header id="header">
-  <div class="brand">
-    <div class="brand-mark">S_</div>
-    <div>
-      <h1>Sabin Sharma</h1>
-      <span>SECURITY / RESEARCH</span>
-    </div>
-  </div>
-
-  <div class="profile-thumb">
-  <img src="assets/img/profile.png" alt="Sabin Sharma" class="img-circle">
-  </div>
-
-  <div class="status-chip"><i></i> Open to Work</div>
-
-  <nav class="navmenu">
-    <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-terminal"></i> Home</a></li>
-      <li><a href="#about"><i class="bi bi-person"></i> About</a></li>
-      <li><a href="#skills"><i class="bi bi-cpu"></i> Skills</a></li>
-      <li><a href="#resume"><i class="bi bi-file-earmark-text"></i> Resume</a></li>
-      <li><a href="#projects"><i class="bi bi-grid"></i> Projects</a></li>
-      <li><a href="#writeups"><i class="bi bi-journal-code"></i> Write-ups</a></li>
-      <li><a href="#services"><i class="bi bi-shield-lock"></i> Services</a></li>
-      <li><a href="#contact"><i class="bi bi-envelope"></i> Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="side-social">
-    <a href="https://github.com/rivalsxninjax1" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-    <a href="https://www.linkedin.com/in/sabin-sharma-33a58b250/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-    <a href="https://x.com/rivalsxninjax1" target="_blank" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-    <a href="https://tryhackme.com" target="_blank" title="TryHackMe"><i class="bi bi-shield-fill-check"></i></a>
-  </div>
-</header>
-
-<main>
-
-  <!-- ============ HERO ============ -->
-  <section id="hero" class="grid-tex">
-    <div class="container">
-      <div class="eyebrow-row">
-        <span class="prompt"><span class="cmd">$</span> whoami</span>
-      </div>
-      <h2>Sabin Sharma<br><span class="accent">Security Researcher.</span></h2>
-      <div class="role-line">I'm currently <span class="typed"></span><span class="cursor"></span></div>
-      <p class="lede">
-        Final-year BCA student from Biratnagar, Nepal, focused on offensive security,
-        web application testing, and the policy side of cybersecurity. I learn by
-        building labs, breaking things safely, and writing it all down.
-      </p>
-      <div class="btn-row">
-        <a href="#projects" class="btn btn-primary"><i class="bi bi-grid"></i> View Projects</a>
-        <a href="#writeups" class="btn btn-ghost"><i class="bi bi-journal-code"></i> Read Write-ups</a>
-        <a href="assets/docs/Sabin_Sharma_Resume.pdf" target="_blank" class="btn btn-ghost"><i class="bi bi-download"></i> Resume</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ABOUT ============ -->
-  <section id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> cat <span class="arg">about.md</span></span>
-        <h2>About</h2>
-        <p>Where technical practice meets policy research.</p>
-      </div>
-
-      <div class="about-grid reveal">
-        <div class="about-photo">
-          <img src="assets/img/profile.png" alt="Sabin Sharma">
+    <header id="header">
+      <div class="brand">
+        <div class="brand-mark">S_</div>
+        <div>
+          <h1>Sabin Sharma</h1>
+          <span>SECURITY / RESEARCH</span>
         </div>
+      </div>
 
-        <div class="about-copy">
-          <h3>Information Security Student &amp; Cybersecurity Researcher</h3>
-          <p>
-            I'm a final-year Bachelor of Computer Application student specialising in
-            information security and cybersecurity governance. My academic work sits at
-            the intersection of technology and public policy, including original
-            undergraduate research on Nepal's institutional cybersecurity capacity and
-            its implications for digital foreign policy at the Ministry of Foreign Affairs.
+      <div class="profile-thumb">
+        <img
+          src="assets/img/profile.png"
+          alt="Sabin Sharma"
+          class="img-circle"
+        />
+      </div>
+
+      <div class="status-chip"><i></i> Open to Work</div>
+
+      <nav class="navmenu">
+        <ul>
+          <li>
+            <a href="#hero" class="active"
+              ><i class="bi bi-terminal"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="#about"><i class="bi bi-person"></i> About</a>
+          </li>
+          <li>
+            <a href="#skills"><i class="bi bi-cpu"></i> Skills</a>
+          </li>
+          <li>
+            <a href="#resume"><i class="bi bi-file-earmark-text"></i> Resume</a>
+          </li>
+          <li>
+            <a href="#projects"><i class="bi bi-grid"></i> Projects</a>
+          </li>
+          <li>
+            <a href="#writeups"><i class="bi bi-journal-code"></i> Write-ups</a>
+          </li>
+          <li>
+            <a href="#services"><i class="bi bi-shield-lock"></i> Services</a>
+          </li>
+          <li>
+            <a href="#contact"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="side-social">
+        <a
+          href="https://github.com/rivalsxninjax1"
+          target="_blank"
+          title="GitHub"
+          ><i class="bi bi-github"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/sabin-sharma-33a58b250/"
+          target="_blank"
+          title="LinkedIn"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a
+          href="https://x.com/rivalsxninjax1"
+          target="_blank"
+          title="X / Twitter"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+        <a href="https://tryhackme.com" target="_blank" title="TryHackMe"
+          ><i class="bi bi-shield-fill-check"></i
+        ></a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ HERO ============ -->
+      <section id="hero" class="grid-tex">
+        <div class="container">
+          <div class="eyebrow-row">
+            <span class="prompt"><span class="cmd">$</span> whoami</span>
+          </div>
+          <h2>
+            Sabin Sharma<br /><span class="accent">Security Researcher.</span>
+          </h2>
+          <div class="role-line">
+            I'm currently <span class="typed"></span
+            ><span class="cursor"></span>
+          </div>
+          <p class="lede">
+            Final-year BCA student from Biratnagar, Nepal, focused on offensive
+            security, web application testing, and the policy side of
+            cybersecurity. I learn by building labs, breaking things safely, and
+            writing it all down.
           </p>
-          <p>
-            Alongside my studies, I work as a Python trainer at Nihareeka College of IT
-            and Management, helping juniors build foundational programming and
-            problem-solving skills. I pursue structured, self-directed learning through
-            TryHackMe and PortSwigger Web Academy, and I'm seeking to deepen this
-            expertise at the postgraduate level.
-          </p>
-
-          <div class="fact-grid">
-            <div class="fact"><span class="k">Location</span><span class="v">Biratnagar, Nepal</span></div>
-            <div class="fact"><span class="k">Degree</span><span class="v">BCA — 8th Semester</span></div>
-            <div class="fact"><span class="k">Available for</span><span class="v">Work &amp; Freelance</span></div>
-            <div class="fact"><span class="k">Email</span><span class="v"><a href="mailto:sabinynwa@gmail.com">sabinynwa@gmail.com</a></span></div>
-            <div class="fact"><span class="k">GitHub</span><span class="v"><a href="https://github.com/rivalsxninjax1" target="_blank">rivalsxninjax1</a></span></div>
-            <div class="fact"><span class="k">Phone</span><span class="v">+977 9742270999</span></div>
-          </div>
-
-          <div class="focus-row">
-            <span class="focus-chip"><i class="bi bi-bug"></i>Web App Security</span>
-            <span class="focus-chip"><i class="bi bi-search"></i>Reconnaissance &amp; OSINT</span>
-            <span class="focus-chip"><i class="bi bi-arrow-up-right-circle"></i>Privilege Escalation</span>
-            <span class="focus-chip"><i class="bi bi-file-earmark-lock"></i>Vulnerability Reporting</span>
+          <div class="btn-row">
+            <a href="#projects" class="btn btn-primary"
+              ><i class="bi bi-grid"></i> View Projects</a
+            >
+            <a href="#writeups" class="btn btn-ghost"
+              ><i class="bi bi-journal-code"></i> Read Write-ups</a
+            >
+            <a
+              href="assets/docs/Sabin_Sharma_Resume.pdf"
+              target="_blank"
+              class="btn btn-ghost"
+              ><i class="bi bi-download"></i> Resume</a
+            >
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ============ SKILLS ============ -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> ls <span class="arg">./skills</span></span>
-        <h2>Skills</h2>
-        <p>Tools, techniques, and domains built through labs, CTFs, and hands-on testing.</p>
-      </div>
+      <!-- ============ ABOUT ============ -->
+      <section id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> cat
+              <span class="arg">about.md</span></span
+            >
+            <h2>About</h2>
+            <p>Where technical practice meets policy research.</p>
+          </div>
 
-      <div class="skills-grid reveal">
-        <div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-globe2"></i>Web Application Security</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">SQL Injection</span>
-              <span class="skill-tag">XSS (Reflected / Stored / DOM)</span>
-              <span class="skill-tag">IDOR</span>
-              <span class="skill-tag">CSRF</span>
-              <span class="skill-tag">Command Injection</span>
-              <span class="skill-tag">Auth Bypass</span>
-              <span class="skill-tag">Broken Access Control</span>
-              <span class="skill-tag">OWASP Top 10</span>
+          <div class="about-grid reveal">
+            <div class="about-photo">
+              <img src="assets/img/profile.png" alt="Sabin Sharma" />
             </div>
-          </div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-terminal"></i>Exploitation &amp; Post-Exploitation</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Metasploit Framework</span>
-              <span class="skill-tag">Reverse Shells</span>
-              <span class="skill-tag">Payload Delivery</span>
-              <span class="skill-tag">Privilege Escalation</span>
-              <span class="skill-tag">Shell Stabilisation</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-key"></i>Cryptography &amp; CTF</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">XOR / Known-Plaintext</span>
-              <span class="skill-tag">RSA (RsaCtfTool)</span>
-              <span class="skill-tag">Vigenère / Caesar</span>
-              <span class="skill-tag">LFSR Stream Ciphers</span>
-              <span class="skill-tag">pwntools</span>
-            </div>
-          </div>
-        </div>
 
-        <div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-search"></i>Reconnaissance &amp; OSINT</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Nmap</span>
-              <span class="skill-tag">Gobuster</span>
-              <span class="skill-tag">ffuf</span>
-              <span class="skill-tag">Sublist3r</span>
-              <span class="skill-tag">Nikto</span>
-              <span class="skill-tag">theHarvester</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-key-fill"></i>Password Attacks</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Hashcat</span>
-              <span class="skill-tag">Hydra</span>
-              <span class="skill-tag">CeWL</span>
-              <span class="skill-tag">Wordlist Crafting</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-tools"></i>Tools &amp; Environment</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Burp Suite Pro</span>
-              <span class="skill-tag">Kali Linux</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Bash</span>
-              <span class="skill-tag">Git &amp; GitHub</span>
-              <span class="skill-tag">Wireshark</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h5><i class="bi bi-file-earmark-text"></i>Documentation</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Vulnerability Reports</span>
-              <span class="skill-tag">CVSS Scoring</span>
-              <span class="skill-tag">Risk Prioritisation</span>
+            <div class="about-copy">
+              <h3>
+                Information Security Student &amp; Cybersecurity Researcher
+              </h3>
+              <p>
+                I'm a final-year Bachelor of Computer Application student
+                specialising in information security and cybersecurity
+                governance. My academic work sits at the intersection of
+                technology and public policy, including original undergraduate
+                research on Nepal's institutional cybersecurity capacity and its
+                implications for digital foreign policy at the Ministry of
+                Foreign Affairs.
+              </p>
+              <p>
+                Alongside my studies, I work as a Python trainer at Nihareeka
+                College of IT and Management, helping juniors build foundational
+                programming and problem-solving skills. I pursue structured,
+                self-directed learning through TryHackMe and PortSwigger Web
+                Academy, and I'm seeking to deepen this expertise at the
+                postgraduate level.
+              </p>
+
+              <div class="fact-grid">
+                <div class="fact">
+                  <span class="k">Location</span
+                  ><span class="v">Biratnagar, Nepal</span>
+                </div>
+                <div class="fact">
+                  <span class="k">Degree</span
+                  ><span class="v">BCA — 8th Semester</span>
+                </div>
+                <div class="fact">
+                  <span class="k">Available for</span
+                  ><span class="v">Work &amp; Freelance</span>
+                </div>
+                <div class="fact">
+                  <span class="k">Email</span
+                  ><span class="v"
+                    ><a href="mailto:sabinynwa@gmail.com"
+                      >sabinynwa@gmail.com</a
+                    ></span
+                  >
+                </div>
+                <div class="fact">
+                  <span class="k">GitHub</span
+                  ><span class="v"
+                    ><a href="https://github.com/rivalsxninjax1" target="_blank"
+                      >rivalsxninjax1</a
+                    ></span
+                  >
+                </div>
+                <div class="fact">
+                  <span class="k">Phone</span
+                  ><span class="v">+977 9742270999</span>
+                </div>
+              </div>
+
+              <div class="focus-row">
+                <span class="focus-chip"
+                  ><i class="bi bi-bug"></i>Web App Security</span
+                >
+                <span class="focus-chip"
+                  ><i class="bi bi-search"></i>Reconnaissance &amp; OSINT</span
+                >
+                <span class="focus-chip"
+                  ><i class="bi bi-arrow-up-right-circle"></i>Privilege
+                  Escalation</span
+                >
+                <span class="focus-chip"
+                  ><i class="bi bi-file-earmark-lock"></i>Vulnerability
+                  Reporting</span
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ============ RESUME ============ -->
-  <section id="resume">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> cat <span class="arg">resume.pdf</span></span>
-        <h2>Education &amp; Experience</h2>
-        <p>Academic background, professional experience, and recognitions.</p>
-      </div>
-
-      <div class="timeline-cols reveal">
-        <div>
-          <div class="tl-label">Education</div>
-          <div class="tl-item">
-            <h4>Bachelor in Computer Application (BCA)</h4>
-            <span class="meta">Nihareeka College of IT &amp; Management · 2021 – Running (8th Semester)</span>
-            <p>Focused on programming, networking fundamentals, and system security. Final-year research paper on Nepal's cybersecurity governance and its impact on Ministry of Foreign Affairs' digital foreign policy capacity.</p>
-          </div>
-          <div class="tl-item">
-            <h4>High School — Science (Computer)</h4>
-            <span class="meta">Xavier International College, Kalopul, Kathmandu</span>
+      <!-- ============ SKILLS ============ -->
+      <section id="skills">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> ls
+              <span class="arg">./skills</span></span
+            >
+            <h2>Skills</h2>
+            <p>
+              Tools, techniques, and domains built through labs, CTFs, and
+              hands-on testing.
+            </p>
           </div>
 
-          <div class="tl-label" style="margin-top:36px;">Certifications &amp; Achievements</div>
-          <div class="tl-item">
-            <h4>Certificate of Participation</h4>
-            <span class="meta">Koshi Mini Yantra Project Demonstration 01 &amp; 02</span>
-          </div>
-          <div class="tl-item">
-            <h4>Hackathon Certification</h4>
-            <span class="meta">HackAstra · Ranked 92 of 455 teams</span>
-          </div>
-        </div>
+          <div class="skills-grid reveal">
+            <div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-globe2"></i>Web Application Security</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">SQL Injection</span>
+                  <span class="skill-tag">XSS (Reflected / Stored / DOM)</span>
+                  <span class="skill-tag">IDOR</span>
+                  <span class="skill-tag">CSRF</span>
+                  <span class="skill-tag">Command Injection</span>
+                  <span class="skill-tag">Auth Bypass</span>
+                  <span class="skill-tag">Broken Access Control</span>
+                  <span class="skill-tag">OWASP Top 10</span>
+                </div>
+              </div>
+              <div class="skill-cat">
+                <h5>
+                  <i class="bi bi-terminal"></i>Exploitation &amp;
+                  Post-Exploitation
+                </h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Metasploit Framework</span>
+                  <span class="skill-tag">Reverse Shells</span>
+                  <span class="skill-tag">Payload Delivery</span>
+                  <span class="skill-tag">Privilege Escalation</span>
+                  <span class="skill-tag">Shell Stabilisation</span>
+                </div>
+              </div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-key"></i>Cryptography &amp; CTF</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">XOR / Known-Plaintext</span>
+                  <span class="skill-tag">RSA (RsaCtfTool)</span>
+                  <span class="skill-tag">Vigenère / Caesar</span>
+                  <span class="skill-tag">LFSR Stream Ciphers</span>
+                  <span class="skill-tag">pwntools</span>
+                </div>
+              </div>
+            </div>
 
-        <div>
-          <div class="tl-label">Professional Experience</div>
-          <div class="tl-item">
-            <h4>Python Trainer</h4>
-            <span class="meta">Nihareeka College of IT &amp; Management</span>
-            <ul>
-              <li>Taught Python fundamentals through hands-on projects and practical exercises.</li>
-              <li>Assisted students in understanding programming basics, problem-solving, and logical thinking.</li>
-            </ul>
-          </div>
-
-          <div class="tl-label" style="margin-top:36px;">Self-Directed Training</div>
-          <div class="tl-item">
-            <h4>TryHackMe — Jr Penetration Tester Path</h4>
-            <p>Reconnaissance, enumeration, web security testing, exploitation, privilege escalation, and Active Directory fundamentals.</p>
-          </div>
-          <div class="tl-item">
-            <h4>PortSwigger Web Security Academy</h4>
-            <p>Structured labs covering OWASP Top 10 vulnerability classes and manual exploitation techniques.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="resume-cta reveal">
-        <a href="assets/docs/Sabin_Sharma_Resume.pdf" target="_blank" class="btn btn-primary"><i class="bi bi-download"></i> Download Full Resume (PDF)</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS ============ -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> ls <span class="arg">./projects</span></span>
-        <h2>Projects</h2>
-        <p>Research, security tools, and software I've built or contributed to source and details live on GitHub.</p>
-      </div>
-
-      <div class="project-grid reveal">
-
-        <!-- Featured project -->
-        <div class="project-card featured">
-          <div class="project-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
-          <div>
-            <div class="project-stack">Policy Research · Cybersecurity Governance</div>
-            <h4>Nepal Cybersecurity Governance &amp; Foreign Policy Capacity</h4>
-            <p>Undergraduate research paper examining institutional gaps in Nepal's cybersecurity governance framework and their downstream impact on the Ministry of Foreign Affairs' digital foreign policy capacity.</p>
-            <div class="project-links">
-              <a href="assets/docs/researchfinalpdf.pdf" target="_blank" class="primary"><i class="bi bi-filetype-pdf"></i> Read the Paper</a>
-              <a href="https://github.com/rivalsxninjax1" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-search"></i>Reconnaissance &amp; OSINT</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Nmap</span>
+                  <span class="skill-tag">Gobuster</span>
+                  <span class="skill-tag">ffuf</span>
+                  <span class="skill-tag">Sublist3r</span>
+                  <span class="skill-tag">Nikto</span>
+                  <span class="skill-tag">theHarvester</span>
+                </div>
+              </div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-key-fill"></i>Password Attacks</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Hashcat</span>
+                  <span class="skill-tag">Hydra</span>
+                  <span class="skill-tag">CeWL</span>
+                  <span class="skill-tag">Wordlist Crafting</span>
+                </div>
+              </div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-tools"></i>Tools &amp; Environment</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Burp Suite Pro</span>
+                  <span class="skill-tag">Kali Linux</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Bash</span>
+                  <span class="skill-tag">Git &amp; GitHub</span>
+                  <span class="skill-tag">Wireshark</span>
+                </div>
+              </div>
+              <div class="skill-cat">
+                <h5><i class="bi bi-file-earmark-text"></i>Documentation</h5>
+                <div class="skill-tags">
+                  <span class="skill-tag">Vulnerability Reports</span>
+                  <span class="skill-tag">CVSS Scoring</span>
+                  <span class="skill-tag">Risk Prioritisation</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
+      <!-- ============ RESUME ============ -->
+      <section id="resume">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> cat
+              <span class="arg">resume.pdf</span></span
+            >
+            <h2>Education &amp; Experience</h2>
+            <p>
+              Academic background, professional experience, and recognitions.
+            </p>
+          </div>
 
+          <div class="timeline-cols reveal">
+            <div>
+              <div class="tl-label">Education</div>
+              <div class="tl-item">
+                <h4>Bachelor in Computer Application (BCA)</h4>
+                <span class="meta"
+                  >Nihareeka College of IT &amp; Management · 2021 – Running
+                  (8th Semester)</span
+                >
+                <p>
+                  Focused on programming, networking fundamentals, and system
+                  security. Final-year research paper on Nepal's cybersecurity
+                  governance and its impact on Ministry of Foreign Affairs'
+                  digital foreign policy capacity.
+                </p>
+              </div>
+              <div class="tl-item">
+                <h4>High School — Science (Computer)</h4>
+                <span class="meta"
+                  >Xavier International College, Kalopul, Kathmandu</span
+                >
+              </div>
 
-     <div class="project-card">
-  <div class="project-icon"><i class="bi bi-shield-lock-fill"></i></div>
-  <div class="project-stack">Python · FastAPI · Celery · PostgreSQL · Ollama (LLM) · ClamAV · React · Docker</div>
-  <h4>PhishGuard — Self-Hosted Phishing Detection Pipeline</h4>
-  <p>7-layer phishing detection engine with a locally-hosted LLM as final verdict — SPF/DMARC checks, homograph detection, and real malware scanning. Fully on-prem, nothing ever leaves the host machine.</p>
-  <div class="project-links">
-    <a href="https://github.com/rivalsxninjax1/fishingai" target="_blank" class="primary"><i class="bi bi-github"></i> View Repo</a>
-  </div>
-</div>
-        
+              <div class="tl-label" style="margin-top: 36px">
+                Certifications &amp; Achievements
+              </div>
+              <div class="tl-item">
+                <h4>Certificate of Participation</h4>
+                <span class="meta"
+                  >Koshi Mini Yantra Project Demonstration 01 &amp; 02</span
+                >
+              </div>
+              <div class="tl-item">
+                <h4>Hackathon Certification</h4>
+                <span class="meta">HackAstra · Ranked 92 of 455 teams</span>
+              </div>
+            </div>
 
-        <div class="project-card">
-          <div class="project-icon"><i class="bi bi-database-fill-gear"></i></div>
-          <div class="project-stack">Python · SQLite · PyQt5</div>
-          <h4>Gurukul Academy Management System</h4>
-          <p>Desktop management system for a tuition centre in Biratnagar — Bikram Sambat date handling, Excel attendance import, PDF receipt generation, and Windows deployment via PyInstaller.</p>
-          <div class="project-links">
-            <a href="https://github.com/rivalsxninjax1/gurukul" target="_blank" class="primary"><i class="bi bi-github"></i> View Repo</a>
+            <div>
+              <div class="tl-label">Professional Experience</div>
+              <div class="tl-item">
+                <h4>Python Trainer</h4>
+                <span class="meta"
+                  >Nihareeka College of IT &amp; Management</span
+                >
+                <ul>
+                  <li>
+                    Taught Python fundamentals through hands-on projects and
+                    practical exercises.
+                  </li>
+                  <li>
+                    Assisted students in understanding programming basics,
+                    problem-solving, and logical thinking.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tl-label" style="margin-top: 36px">
+                Self-Directed Training
+              </div>
+              <div class="tl-item">
+                <h4>TryHackMe — Jr Penetration Tester Path</h4>
+                <p>
+                  Reconnaissance, enumeration, web security testing,
+                  exploitation, privilege escalation, and Active Directory
+                  fundamentals.
+                </p>
+              </div>
+              <div class="tl-item">
+                <h4>PortSwigger Web Security Academy</h4>
+                <p>
+                  Structured labs covering OWASP Top 10 vulnerability classes
+                  and manual exploitation techniques.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-cta reveal">
+            <a
+              href="assets/docs/Sabin_Sharma_Resume.pdf"
+              target="_blank"
+              class="btn btn-primary"
+              ><i class="bi bi-download"></i> Download Full Resume (PDF)</a
+            >
           </div>
         </div>
-        <!--
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> ls
+              <span class="arg">./projects</span></span
+            >
+            <h2>Projects</h2>
+            <p>
+              Research, security tools, and software I've built or contributed
+              to source and details live on GitHub.
+            </p>
+          </div>
+
+          <div class="project-grid reveal">
+            <!-- Featured project -->
+            <div class="project-card featured">
+              <div class="project-icon">
+                <i class="bi bi-file-earmark-text-fill"></i>
+              </div>
+              <div>
+                <div class="project-stack">
+                  Policy Research · Cybersecurity Governance
+                </div>
+                <h4>
+                  Nepal Cybersecurity Governance &amp; Foreign Policy Capacity
+                </h4>
+                <p>
+                  Undergraduate research paper examining institutional gaps in
+                  Nepal's cybersecurity governance framework and their
+                  downstream impact on the Ministry of Foreign Affairs' digital
+                  foreign policy capacity.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="assets/docs/researchfinalpdf.pdf"
+                    target="_blank"
+                    class="primary"
+                    ><i class="bi bi-filetype-pdf"></i> Read the Paper</a
+                  >
+                  <a href="https://github.com/rivalsxninjax1" target="_blank"
+                    ><i class="bi bi-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+              <div class="project-stack">
+                Python · FastAPI · Celery · PostgreSQL · Ollama (LLM) · ClamAV ·
+                React · Docker
+              </div>
+              <h4>PhishGuard — Self-Hosted Phishing Detection Pipeline</h4>
+              <p>
+                7-layer phishing detection engine with a locally-hosted LLM as
+                final verdict — SPF/DMARC checks, homograph detection, and real
+                malware scanning. Fully on-prem, nothing ever leaves the host
+                machine.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/rivalsxninjax1/fishingai"
+                  target="_blank"
+                  class="primary"
+                  ><i class="bi bi-github"></i> View Repo</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="bi bi-database-fill-gear"></i>
+              </div>
+              <div class="project-stack">Python · SQLite · PyQt5</div>
+              <h4>Gurukul Academy Management System</h4>
+              <p>
+                Desktop management system for a tuition centre in Biratnagar —
+                Bikram Sambat date handling, Excel attendance import, PDF
+                receipt generation, and Windows deployment via PyInstaller.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/rivalsxninjax1/gurukul"
+                  target="_blank"
+                  class="primary"
+                  ><i class="bi bi-github"></i> View Repo</a
+                >
+              </div>
+            </div>
+            <!--
         <div class="project-card">
           <div class="project-icon"><i class="bi bi-shield-fill-check"></i></div>
           <div class="project-stack">DVWA · PortSwigger · Lab Research</div>
@@ -341,182 +551,323 @@
             <a href="#writeups"><i class="bi bi-journal-code"></i> See Write-ups</a>
           </div>
         </div>-->
+          </div>
 
-      </div>
-
-      <div class="more-projects reveal">
-        <div>
-          <strong>More repositories on GitHub</strong>
-          <p>New tools, scripts, and CTF solutions get pushed to GitHub first — that's the best place to see what I'm currently building.</p>
+          <div class="more-projects reveal">
+            <div>
+              <strong>More repositories on GitHub</strong>
+              <p>
+                New tools, scripts, and CTF solutions get pushed to GitHub first
+                — that's the best place to see what I'm currently building.
+              </p>
+            </div>
+            <a
+              href="https://github.com/rivalsxninjax1?tab=repositories"
+              target="_blank"
+              class="btn btn-ghost"
+              ><i class="bi bi-github"></i> Browse all repos</a
+            >
+          </div>
         </div>
-        <a href="https://github.com/rivalsxninjax1?tab=repositories" target="_blank" class="btn btn-ghost"><i class="bi bi-github"></i> Browse all repos</a>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ============ WRITE-UPS ============ -->
-  <section id="writeups" class="grid-tex">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> tail -f <span class="arg">writeups.log</span></span>
-        <h2>Write-ups</h2>
-        <p>Lab documentation and CTF walkthroughs, published and maintained on GitHub.</p>
-      </div>
+      <!-- ============ WRITE-UPS ============ -->
+      <section id="writeups" class="grid-tex">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> tail -f
+              <span class="arg">writeups.log</span></span
+            >
+            <h2>Write-ups</h2>
+            <p>
+              Lab documentation and CTF walkthroughs, published and maintained
+              on GitHub.
+            </p>
+          </div>
 
-      <div class="writeup-banner reveal">
-        <div class="txt">
-          <strong>All write-ups are published on GitHub</strong>
-          <p>Each entry below links out to the full walkthrough — screenshots, commands, and remediation notes included.</p>
-        </div>
-        <a href="https://github.com/rivalsxninjax1?tab=repositories" target="_blank" class="btn btn-primary"><i class="bi bi-github"></i> Open GitHub</a>
-      </div>
+          <div class="writeup-banner reveal">
+            <div class="txt">
+              <strong>All write-ups are published on GitHub</strong>
+              <p>
+                Each entry below links out to the full walkthrough —
+                screenshots, commands, and remediation notes included.
+              </p>
+            </div>
+            <a
+              href="https://ninjax11.gitbook.io/docs"
+              target="_blank"
+              class="btn btn-primary"
+              ><i class="bi bi-github"></i> Open GitHub</a
+            >
+          </div>
 
-      <!--
+          <!--
         HOW TO ADD A NEW WRITE-UP
         Duplicate one .writeup-card block below and edit:
           - the two <span class="tag"> labels (category + technique)
           - the <h4> title
           - the <p> one-line summary
           - the href on <a class="read-more"> → link straight to the file/folder in your GitHub write-ups repo
-      --><!--
-      <div class="writeup-grid reveal">
-
-       <div class="writeup-card">
-          <i class="bi bi-globe2 wu-icon"></i>
-          <div class="tag-row"><span class="tag">Web</span><span class="tag">SQLi</span></div>
-          <h4>Web Application Injection Testing</h4>
-          <p>Notes on identifying and exploiting SQL injection points across DVWA and PortSwigger labs, from detection to data extraction.</p>
-          <a href="https://github.com/rivalsxninjax1?tab=repositories" target="_blank" class="read-more">Read write-up <i class="bi bi-arrow-right"></i></a>
-        </div>
-
-        <div class="writeup-card">
-          <i class="bi bi-braces wu-icon"></i>
-          <div class="tag-row"><span class="tag">CTF</span><span class="tag">Crypto</span></div>
-          <h4>Breaking a Stream Cipher with pwntools</h4>
-          <p>Recovering a keystream from a weak LFSR-based cipher using known-plaintext and correlation techniques.</p>
-          <a href="https://github.com/rivalsxninjax1?tab=repositories" target="_blank" class="read-more">Read write-up <i class="bi bi-arrow-right"></i></a>
-        </div>
-
-        <div class="writeup-card">
-          <i class="bi bi-search wu-icon"></i>
-          <div class="tag-row"><span class="tag">Recon</span><span class="tag">OSINT</span></div>
-          <h4>Enumeration Methodology for Web Targets</h4>
-          <p>A repeatable recon workflow — Nmap service discovery, subdomain enumeration, and directory brute-forcing before exploitation.</p>
-          <a href="https://github.com/rivalsxninjax1?tab=repositories" target="_blank" class="read-more">Read write-up <i class="bi bi-arrow-right"></i></a>
-        </div>  -->
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section id="services" class="tight">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> cat <span class="arg">services.md</span></span>
-        <h2>Services</h2>
-        <p>What I can help with, based on practical experience in offensive security testing.</p>
-      </div>
-
-      <div class="service-grid reveal">
-        <div class="service-card">
-          <i class="bi bi-bug-fill"></i>
-          <h4>Web App Penetration Testing</h4>
-          <p>Manual and automated testing for OWASP Top 10 vulnerabilities — SQLi, XSS, IDOR, and authentication flaws.</p>
-        </div>
-        <div class="service-card">
-          <i class="bi bi-search"></i>
-          <h4>Reconnaissance &amp; OSINT</h4>
-          <p>Active and passive information gathering using Nmap, Sublist3r, theHarvester, and custom OSINT workflows.</p>
-        </div>
-        <div class="service-card">
-          <i class="bi bi-file-earmark-text-fill"></i>
-          <h4>Vulnerability Reporting</h4>
-          <p>Clear, professional reports with CVSS scoring, proof-of-concept steps, and prioritised remediation guidance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="prompt"><span class="cmd">$</span> ./contact <span class="arg">--init</span></span>
-        <h2>Contact</h2>
-        <p>Open to internships, freelance work, collaborations, and CTF team invitations.</p>
-      </div>
-
-      <div class="contact-grid reveal">
-        <div class="contact-info">
-          <div class="item">
-            <i class="bi bi-geo-alt"></i>
-            <div><h3>Location</h3><p>Biratnagar, Morang, Nepal</p></div>
-          </div>
-          <div class="item">
-            <i class="bi bi-telephone"></i>
-            <div><h3>Phone</h3><p>+977 9742270999</p></div>
-          </div>
-          <div class="item">
-            <i class="bi bi-envelope"></i>
-            <div><h3>Email</h3><p><a href="mailto:sabinynwa@gmail.com">sabinynwa@gmail.com</a></p></div>
-          </div>
-          <div class="item">
-            <i class="bi bi-github"></i>
-            <div><h3>GitHub</h3><p><a href="https://github.com/rivalsxninjax1" target="_blank">github.com/rivalsxninjax1</a></p></div>
-          </div>
-
-          <div class="contact-social">
-            <a href="https://www.linkedin.com/in/sabin-sharma-33a58b250/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://x.com/rivalsxninjax1" target="_blank" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.instagram.com/rivalsxninjax/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.facebook.com/sabinac007/" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://tryhackme.com" target="_blank" title="TryHackMe"><i class="bi bi-shield-fill-check"></i></a>
-          </div>
-        </div>
-
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="e94a9a36-7b99-456f-98b1-3f2509857cee">
-          <input type="hidden" name="subject" value="New Portfolio Contact — Sabin Sharma">
-          <input type="hidden" name="from_name" value="Sabin Sharma Portfolio">
-
-          <div class="form-row">
-            <div>
-              <label for="name-field">Your Name</label>
-              <input type="text" name="name" id="name-field" required>
+      -->
+          <div class="writeup-grid reveal">
+            <div class="writeup-card">
+              <i class="bi bi-hdd-network wu-icon"></i>
+              <div class="tag-row">
+                <span class="tag">TryHackMe</span
+                ><span class="tag">Priv Esc</span>
+              </div>
+              <h4>Domino</h4>
+              <p>
+                Write-up covering enumeration through to root, chaining a web
+                foothold into a full privilege escalation.
+              </p>
+              <a
+                href="https://ninjax11.gitbook.io/docs/tryhackme/domino"
+                target="_blank"
+                class="read-more"
+                >Read write-up <i class="bi bi-arrow-right"></i
+              ></a>
             </div>
-            <div>
-              <label for="email-field">Your Email</label>
-              <input type="email" name="email" id="email-field" required>
+
+            <div class="writeup-card">
+              <i class="bi bi-terminal wu-icon"></i>
+              <div class="tag-row">
+                <span class="tag">SQLi</span
+                ><span class="tag">Cmd Injection</span>
+              </div>
+              <h4>Silent Monitor</h4>
+              <p>
+                SQL injection auth bypass, command injection on a health-check
+                endpoint, credential reuse, and a kernel exploit to root.
+              </p>
+              <a
+                href="https://ninjax11.gitbook.io/docs/tryhackme/silent_monitor"
+                target="_blank"
+                class="read-more"
+                >Read write-up <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="writeup-card">
+              <i class="bi bi-shield-lock wu-icon"></i>
+              <div class="tag-row">
+                <span class="tag">SQLi</span
+                ><span class="tag">Sudo Misconfig</span>
+              </div>
+              <h4>Operation Promotion</h4>
+              <p>
+                Admin SQLi to RCE via a ping diagnostic, password cracking with
+                mutation rules, and root through a sudo/find misconfiguration.
+              </p>
+              <a
+                href="https://ninjax11.gitbook.io/docs/tryhackme/operation_promotion"
+                target="_blank"
+                class="read-more"
+                >Read write-up <i class="bi bi-arrow-right"></i
+              ></a>
             </div>
           </div>
-          <div>
-            <label for="subject-field">Subject</label>
-            <input type="text" name="subject" id="subject-field" required>
+        </div>
+      </section>
+
+      <!-- ============ SERVICES ============ -->
+      <section id="services" class="tight">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> cat
+              <span class="arg">services.md</span></span
+            >
+            <h2>Services</h2>
+            <p>
+              What I can help with, based on practical experience in offensive
+              security testing.
+            </p>
           </div>
-          <div>
-            <label for="message-field">Message</label>
-            <textarea name="message" id="message-field" rows="6" required></textarea>
+
+          <div class="service-grid reveal">
+            <div class="service-card">
+              <i class="bi bi-bug-fill"></i>
+              <h4>Web App Penetration Testing</h4>
+              <p>
+                Manual and automated testing for OWASP Top 10 vulnerabilities —
+                SQLi, XSS, IDOR, and authentication flaws.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="bi bi-search"></i>
+              <h4>Reconnaissance &amp; OSINT</h4>
+              <p>
+                Active and passive information gathering using Nmap, Sublist3r,
+                theHarvester, and custom OSINT workflows.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="bi bi-file-earmark-text-fill"></i>
+              <h4>Vulnerability Reporting</h4>
+              <p>
+                Clear, professional reports with CVSS scoring, proof-of-concept
+                steps, and prioritised remediation guidance.
+              </p>
+            </div>
           </div>
-          <div class="btn-row" style="align-items:center;">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Send Message</button>
-            <span class="form-status"></span>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="prompt"
+              ><span class="cmd">$</span> ./contact
+              <span class="arg">--init</span></span
+            >
+            <h2>Contact</h2>
+            <p>
+              Open to internships, freelance work, collaborations, and CTF team
+              invitations.
+            </p>
           </div>
-        </form>
+
+          <div class="contact-grid reveal">
+            <div class="contact-info">
+              <div class="item">
+                <i class="bi bi-geo-alt"></i>
+                <div>
+                  <h3>Location</h3>
+                  <p>Biratnagar, Morang, Nepal</p>
+                </div>
+              </div>
+              <div class="item">
+                <i class="bi bi-telephone"></i>
+                <div>
+                  <h3>Phone</h3>
+                  <p>+977 9742270999</p>
+                </div>
+              </div>
+              <div class="item">
+                <i class="bi bi-envelope"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>
+                    <a href="mailto:sabinynwa@gmail.com">sabinynwa@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+              <div class="item">
+                <i class="bi bi-github"></i>
+                <div>
+                  <h3>GitHub</h3>
+                  <p>
+                    <a href="https://github.com/rivalsxninjax1" target="_blank"
+                      >github.com/rivalsxninjax1</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-social">
+                <a
+                  href="https://www.linkedin.com/in/sabin-sharma-33a58b250/"
+                  target="_blank"
+                  title="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a
+                  href="https://x.com/rivalsxninjax1"
+                  target="_blank"
+                  title="X / Twitter"
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/rivalsxninjax/"
+                  target="_blank"
+                  title="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/sabinac007/"
+                  target="_blank"
+                  title="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a
+                  href="https://tryhackme.com"
+                  target="_blank"
+                  title="TryHackMe"
+                  ><i class="bi bi-shield-fill-check"></i
+                ></a>
+              </div>
+            </div>
+
+            <form
+              class="contact-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="access_key"
+                value="e94a9a36-7b99-456f-98b1-3f2509857cee"
+              />
+              <input
+                type="hidden"
+                name="subject"
+                value="New Portfolio Contact — Sabin Sharma"
+              />
+              <input
+                type="hidden"
+                name="from_name"
+                value="Sabin Sharma Portfolio"
+              />
+
+              <div class="form-row">
+                <div>
+                  <label for="name-field">Your Name</label>
+                  <input type="text" name="name" id="name-field" required />
+                </div>
+                <div>
+                  <label for="email-field">Your Email</label>
+                  <input type="email" name="email" id="email-field" required />
+                </div>
+              </div>
+              <div>
+                <label for="subject-field">Subject</label>
+                <input type="text" name="subject" id="subject-field" required />
+              </div>
+              <div>
+                <label for="message-field">Message</label>
+                <textarea
+                  name="message"
+                  id="message-field"
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+              <div class="btn-row" style="align-items: center">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-send"></i> Send Message
+                </button>
+                <span class="form-status"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        © 2025–2026 Sabin Sharma · Built with a focus on projects that speak for
+        themselves.
       </div>
-    </div>
-  </section>
+    </footer>
 
-</main>
+    <a href="#" id="scroll-top" aria-label="Scroll to top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
 
-<footer id="footer">
-  <div class="container">
-    © 2025–2026 Sabin Sharma · Built with a focus on projects that speak for themselves.
-  </div>
-</footer>
-
-<a href="#" id="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></a>
-
-<script src="assets/js/main.js"></script>
-</body>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
