@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE FILE // Ethical Hacking Fundamentals — 44hr Course</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg:#0a0e13;
+    --panel:#0f151c;
+    --panel-hi:#141c25;
+    --line:#22303c;
+    --teal:#5eead4;
+    --amber:#f2a23c;
+    --red:#e2543a;
+    --text:#d9e3ea;
+    --muted:#7c8fa0;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.55;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:-1px -1px;
+    background-attachment:fixed;
+  }
+
+  a{color:var(--teal);}
+
+  ::selection{background:var(--teal); color:#0a0e13;}
+
+  /* ---------- scanline / vignette overlay ---------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:50;
+    background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 140%);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px;
+    background:rgba(10,14,19,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--muted);
+  }
+  .topbar .dot{color:var(--red); animation:blink 1.6s infinite;}
+  @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:.15;}}
+  .topbar span.hl{color:var(--teal);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:980px;
+    margin:0 auto;
+    padding:90px 28px 60px;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .kicker::before{content:"//"; color:var(--muted);}
+
+  .terminal{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,0.8);
+    margin-bottom:34px;
+  }
+  .terminal-head{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 14px;
+    background:var(--panel-hi);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+  }
+  .terminal-head i{width:10px;height:10px;border-radius:50%;display:inline-block;background:#3a4650;}
+  .terminal-body{
+    padding:26px 28px 30px;
+    font-family:var(--mono);
+  }
+  .terminal-body .line{font-size:13px; color:var(--muted); margin-bottom:6px;}
+  .terminal-body .line .prompt{color:var(--teal); margin-right:8px;}
+  .terminal-body .type-out{
+    font-size:13px; color:#9fb3c2; margin-bottom:16px;
+  }
+
+  h1.title{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:clamp(28px, 4.4vw, 46px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    color:#fff;
+    margin:14px 0 6px;
+  }
+  h1.title .accent{color:var(--teal);}
+
+  .subhead{
+    font-size:16px;
+    color:var(--muted);
+    max-width:640px;
+    margin-top:6px;
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    margin-top:34px;
+  }
+  .stat{
+    background:var(--panel);
+    padding:18px 20px;
+  }
+  .stat .num{
+    font-family:var(--mono);
+    font-size:26px;
+    font-weight:700;
+    color:var(--teal);
+  }
+  .stat .lbl{
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  /* ---------- section shell ---------- */
+  section.wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:10px 28px 70px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin:64px 0 30px;
+  }
+  .section-head h2{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#fff;
+  }
+  .section-head .idx{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  .intro-text{
+    color:var(--muted);
+    font-size:15px;
+    max-width:720px;
+    margin-bottom:6px;
+  }
+
+  /* ---------- phase divider ---------- */
+  .phase{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin:56px 0 22px;
+  }
+  .phase .ph-num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:#0a0e13;
+    background:var(--teal);
+    padding:5px 10px;
+    border-radius:3px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    white-space:nowrap;
+  }
+  .phase .ph-name{
+    font-family:var(--mono);
+    font-size:14px;
+    color:#fff;
+    letter-spacing:0.04em;
+  }
+  .phase .ph-meta{
+    margin-left:auto;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .phase-line{
+    height:1px;
+    background:linear-gradient(90deg, var(--line), transparent);
+    margin-bottom:26px;
+  }
+
+  /* ---------- session card ---------- */
+  .session{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:14px;
+    overflow:hidden;
+    transition:border-color .2s ease;
+  }
+  .session:hover{border-color:#334454;}
+
+  .session-head{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px 20px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .session-head .sid{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--bg);
+    background:var(--muted);
+    padding:3px 8px;
+    border-radius:3px;
+    flex-shrink:0;
+    letter-spacing:0.03em;
+  }
+  .session-head .stitle{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:15px;
+    color:#fff;
+    flex:1;
+  }
+  .session-head .sday{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .badge{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border-radius:20px;
+    border:1px solid;
+    white-space:nowrap;
+  }
+  .badge.low{color:var(--teal); border-color:rgba(94,234,212,0.4); background:rgba(94,234,212,0.06);}
+  .badge.med{color:var(--amber); border-color:rgba(242,162,60,0.4); background:rgba(242,162,60,0.06);}
+  .badge.high{color:var(--red); border-color:rgba(226,84,58,0.4); background:rgba(226,84,58,0.06);}
+
+  .chevron{
+    font-family:var(--mono);
+    color:var(--muted);
+    font-size:14px;
+    transition:transform .2s ease;
+    flex-shrink:0;
+  }
+  .session.open .chevron{transform:rotate(90deg); color:var(--teal);}
+
+  .session-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    border-top:1px solid transparent;
+  }
+  .session.open .session-body{
+    border-top:1px solid var(--line);
+  }
+
+  .session-body-inner{
+    padding:20px 20px 24px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px 32px;
+  }
+  @media(max-width:640px){
+    .session-body-inner{grid-template-columns:1fr;}
+  }
+
+  .col h4{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:10px;
+  }
+  .col p.desc{
+    font-size:13.5px;
+    color:#b7c4cd;
+    margin-bottom:14px;
+  }
+  .col ul{list-style:none;}
+  .col ul li{
+    font-size:13.5px;
+    color:#b7c4cd;
+    padding-left:16px;
+    position:relative;
+    margin-bottom:7px;
+  }
+  .col ul li::before{
+    content:"▸";
+    color:var(--teal);
+    position:absolute;
+    left:0;
+  }
+  .tool-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:2px;}
+  .tool-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    background:var(--panel-hi);
+    border:1px solid var(--line);
+    color:#9fb3c2;
+    padding:4px 9px;
+    border-radius:4px;
+  }
+  .lab-box{
+    grid-column:1 / -1;
+    background:var(--panel-hi);
+    border:1px dashed #2c3b48;
+    border-radius:5px;
+    padding:14px 16px;
+    margin-top:2px;
+  }
+  .lab-box h4{color:var(--teal); margin-bottom:8px;}
+  .lab-box p{font-size:13.5px; color:#b7c4cd;}
+
+  /* ---------- info grid (methodology, prereqs, outcomes) ---------- */
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+    margin-bottom:10px;
+  }
+  @media(max-width:760px){.grid-3{grid-template-columns:1fr;}}
+  .info-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:22px 20px;
+  }
+  .info-card .ic-num{
+    font-family:var(--mono);
+    color:var(--teal);
+    font-size:11px;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+  }
+  .info-card h3{
+    font-size:15px;
+    margin-bottom:10px;
+    color:#fff;
+  }
+  .info-card ul li{
+    font-size:13.5px;
+    color:var(--muted);
+    padding-left:14px;
+    position:relative;
+    margin-bottom:6px;
+    list-style:none;
+  }
+  .info-card ul li::before{content:"—"; position:absolute; left:0; color:var(--teal);}
+
+  /* ---------- legal / ethics banner ---------- */
+  .ethics-banner{
+    border:1px solid rgba(226,84,58,0.35);
+    background:linear-gradient(180deg, rgba(226,84,58,0.07), transparent);
+    border-radius:6px;
+    padding:22px 24px;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .ethics-banner .icon{
+    font-family:var(--mono);
+    font-size:20px;
+    color:var(--red);
+    flex-shrink:0;
+    border:1px solid rgba(226,84,58,0.4);
+    width:38px; height:38px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .ethics-banner h3{color:#fff; font-size:14px; margin-bottom:6px; font-family:var(--mono); letter-spacing:0.03em;}
+  .ethics-banner p{font-size:13.5px; color:#b7c4cd;}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 28px 60px;
+    max-width:980px;
+    margin:0 auto;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* toggle-all */
+  .toggle-all{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    background:none;
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:4px;
+    cursor:pointer;
+    letter-spacing:0.04em;
+  }
+  .toggle-all:hover{border-color:var(--teal); color:var(--teal);}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="topbar">
+  <div><span class="dot">●</span> LIVE COURSE FILE <span class="hl">// EH-101</span></div>
+  <div>STATUS: <span class="hl">ACTIVE</span> · CLEARANCE: BEGINNER</div>
+</div>
+
+<div class="hero">
+  <div class="kicker">Cybersecurity Training Program</div>
+
+  <div class="terminal">
+    <div class="terminal-head">
+      <i style="background:#e2543a"></i><i style="background:#f2a23c"></i><i style="background:#5eead4"></i>
+      &nbsp;&nbsp;root@syllabus:~
+    </div>
+    <div class="terminal-body">
+      <div class="line"><span class="prompt">$</span>cat course_manifest.txt</div>
+      <div class="type-out">Loading curriculum... 22 sessions found. Duration: 44:00:00. Level: BEGINNER. Access granted.</div>
+      <h1 class="title">Ethical Hacking <span class="accent">Fundamentals</span></h1>
+      <p class="subhead" style="font-family:var(--sans);">A 44-hour, hands-on introduction to offensive security — from networking foundations and Linux basics through reconnaissance, scanning, and beginner-level exploitation concepts, delivered in 22 two-hour sessions.</p>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">44h</div><div class="lbl">Total Runtime</div></div>
+    <div class="stat"><div class="num">22</div><div class="lbl">Sessions · 2h/day</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Course Phases</div></div>
+    <div class="stat"><div class="num">01</div><div class="lbl">Clearance Level</div></div>
+  </div>
+</div>
+
+<section class="wrap">
+
+  <div class="section-head">
+    <h2>Briefing / Program Overview</h2>
+    <span class="idx">01</span>
+  </div>
+
+  <div class="grid-3">
+    <div class="info-card">
+      <div class="ic-num">// AUDIENCE</div>
+      <h3>Who this is for</h3>
+      <ul>
+        <li>Complete beginners to cybersecurity</li>
+        <li>IT / helpdesk staff moving into security</li>
+        <li>Students preparing for CEH / Security+ style paths</li>
+        <li>No prior hacking or programming experience required</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <div class="ic-num">// PREREQUISITES</div>
+      <h3>Before you start</h3>
+      <ul>
+        <li>Laptop with 8GB+ RAM, virtualization enabled</li>
+        <li>Basic comfort using a computer (any OS)</li>
+        <li>Reliable internet connection</li>
+        <li>Curiosity and willingness to read documentation</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <div class="ic-num">// OUTCOMES</div>
+      <h3>By session 22 you can</h3>
+      <ul>
+        <li>Set up and navigate a Kali Linux lab</li>
+        <li>Perform recon, scanning &amp; enumeration on lab targets</li>
+        <li>Explain and demonstrate beginner-level exploit concepts</li>
+        <li>Write a basic penetration test report</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="height:20px"></div>
+
+  <div class="ethics-banner">
+    <div class="icon">!</div>
+    <div>
+      <h3>SCOPE OF AUTHORIZATION</h3>
+      <p>Every technique in this course is taught strictly for use in isolated lab environments and authorized penetration testing engagements. Session 1 covers the legal framework (Computer Misuse Act / CFAA-equivalent laws, written authorization, scope agreements) before any tool is touched. Unauthorized access to systems you do not own or have written permission to test is illegal in virtually every jurisdiction.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="wrap" style="padding-top:0;">
+  <div class="section-head">
+    <h2>Session Log</h2>
+    <button class="toggle-all" onclick="toggleAll()">EXPAND ALL</button>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <span class="ph-num">PHASE 01</span>
+    <span class="ph-name">Foundations</span>
+    <span class="ph-meta">Sessions 01–05 · 10h</span>
+  </div>
+  <div class="phase-line"></div>
+
+  <div class="session" id="s1">
+    <div class="session-head" onclick="toggle('s1')">
+      <span class="sid">EH-01</span>
+      <span class="stitle">Introduction to Cybersecurity &amp; Ethical Hacking</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 1 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Frames the entire course: what ethical hacking is, how it differs from criminal hacking, and the legal boundaries that make everything else in this program permissible to practice.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>CIA Triad — Confidentiality, Integrity, Availability</li>
+            <li>Hacker classifications: white/grey/black hat</li>
+            <li>Laws &amp; frameworks: unauthorized access statutes, scope docs</li>
+            <li>The Penetration Testing lifecycle overview</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">None (theory session)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Define the 5 phases of ethical hacking</li>
+            <li>Explain why written authorization is mandatory</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Draft a mock "Rules of Engagement" document for a fictional client, defining scope, exclusions, and authorization signatures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s2">
+    <div class="session-head" onclick="toggle('s2')">
+      <span class="sid">EH-02</span>
+      <span class="stitle">Networking Fundamentals I — OSI &amp; TCP/IP</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 2 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Every attack technique later in the course rests on understanding how packets actually move. This session builds that mental model from the ground up.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>OSI 7-layer model, mapped to real traffic</li>
+            <li>TCP/IP stack, encapsulation</li>
+            <li>IPv4 addressing, subnetting basics</li>
+            <li>MAC addresses &amp; ARP</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">ipconfig / ifconfig</span>
+            <span class="tool-tag">ping</span>
+            <span class="tool-tag">traceroute</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Diagram how a packet crosses the OSI layers</li>
+            <li>Calculate a basic subnet mask</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Map your home/lab network: identify your IP, gateway, subnet, and trace the route to a public site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s3">
+    <div class="session-head" onclick="toggle('s3')">
+      <span class="sid">EH-03</span>
+      <span class="stitle">Networking Fundamentals II — Ports, Protocols &amp; DNS</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 3 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Zeroes in on the services attackers actually target: what runs on which port, how DNS resolves names, and how HTTP/HTTPS traffic is structured.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>TCP vs UDP, 3-way handshake</li>
+            <li>Common ports: 21, 22, 23, 25, 53, 80, 443, 445, 3389</li>
+            <li>DNS record types &amp; resolution flow</li>
+            <li>HTTP request/response anatomy</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">nslookup</span>
+            <span class="tool-tag">dig</span>
+            <span class="tool-tag">Wireshark (intro view)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Identify a service from its port number</li>
+            <li>Read a raw HTTP request</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Use dig/nslookup to resolve a domain's A, MX, and TXT records; capture and inspect one HTTP request in Wireshark.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s4">
+    <div class="session-head" onclick="toggle('s4')">
+      <span class="sid">EH-04</span>
+      <span class="stitle">Linux Fundamentals I — Filesystem &amp; Core Commands</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 4 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Kali Linux is the working environment for the rest of the course — this session builds command-line fluency before any security tool is touched.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Linux filesystem hierarchy</li>
+            <li>Navigation: ls, cd, pwd, find</li>
+            <li>File permissions &amp; ownership (chmod/chown)</li>
+            <li>Users, groups, sudo</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Kali Linux</span>
+            <span class="tool-tag">Bash</span>
+            <span class="tool-tag">man pages</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Navigate a Linux filesystem confidently</li>
+            <li>Modify file permissions correctly</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Complete a scavenger hunt of 15 terminal challenges (find hidden files, change permissions, create/copy/move files) inside Kali.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s5">
+    <div class="session-head" onclick="toggle('s5')">
+      <span class="sid">EH-05</span>
+      <span class="stitle">Linux Fundamentals II — Scripting &amp; Package Management</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 5 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Introduces just enough Bash scripting to automate repetitive recon tasks later, plus how to install and manage the security tools used throughout the course.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Bash variables, loops, conditionals</li>
+            <li>apt package management</li>
+            <li>Piping &amp; redirection</li>
+            <li>Text processing: grep, awk, cut</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Bash scripting</span>
+            <span class="tool-tag">apt</span>
+            <span class="tool-tag">grep / awk</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Write a simple Bash script with a loop</li>
+            <li>Chain commands with pipes to filter output</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Write a script that pings a list of IPs from a text file and reports which are alive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <span class="ph-num">PHASE 02</span>
+    <span class="ph-name">Lab Setup &amp; Reconnaissance</span>
+    <span class="ph-meta">Sessions 06–10 · 10h</span>
+  </div>
+  <div class="phase-line"></div>
+
+  <div class="session" id="s6">
+    <div class="session-head" onclick="toggle('s6')">
+      <span class="sid">EH-06</span>
+      <span class="stitle">Building Your Home Lab</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 6 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">A safe, isolated, legal practice range is essential. This session gets every student's lab running before any live technique is taught.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Type 2 hypervisors: VirtualBox / VMware</li>
+            <li>Isolated (host-only/NAT) network configuration</li>
+            <li>Installing Kali Linux as attacker VM</li>
+            <li>Installing Metasploitable2 / DVWA as legal targets</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">VirtualBox</span>
+            <span class="tool-tag">Kali Linux</span>
+            <span class="tool-tag">Metasploitable2</span>
+            <span class="tool-tag">DVWA</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Configure an isolated virtual lab network</li>
+            <li>Verify attacker VM can reach target VM only</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Stand up Kali + Metasploitable2 on a host-only network; confirm connectivity with a ping test and screenshot the topology.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s7">
+    <div class="session-head" onclick="toggle('s7')">
+      <span class="sid">EH-07</span>
+      <span class="stitle">Footprinting &amp; OSINT</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 7 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">The first real phase of a penetration test: gathering public information about a target without touching it directly.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Passive vs active reconnaissance</li>
+            <li>WHOIS &amp; domain intelligence</li>
+            <li>Google dorking basics</li>
+            <li>Social media &amp; metadata leakage</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">whois</span>
+            <span class="tool-tag">theHarvester</span>
+            <span class="tool-tag">Shodan (intro)</span>
+            <span class="tool-tag">exiftool</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Build a target profile from public sources only</li>
+            <li>Extract metadata from a sample document</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Run theHarvester against a permitted training domain and compile a one-page OSINT summary.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s8">
+    <div class="session-head" onclick="toggle('s8')">
+      <span class="sid">EH-08</span>
+      <span class="stitle">Scanning Networks with Nmap</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 8 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Moves from passive to active recon: discovering live hosts, open ports, and running services on the lab network.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Host discovery &amp; ping sweeps</li>
+            <li>TCP connect vs SYN scans</li>
+            <li>Service &amp; version detection</li>
+            <li>Scan timing and stealth considerations</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Nmap</span>
+            <span class="tool-tag">Zenmap</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Run and interpret an Nmap SYN scan</li>
+            <li>Identify open ports and their likely services</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Scan Metasploitable2 with Nmap (-sS -sV), document every open port and the service running on it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s9">
+    <div class="session-head" onclick="toggle('s9')">
+      <span class="sid">EH-09</span>
+      <span class="stitle">Enumeration — SMB, NetBIOS &amp; SNMP</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 9 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Digs deeper than scanning: extracting usernames, shares, and system details that turn an open port into a usable lead.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>NetBIOS &amp; SMB enumeration</li>
+            <li>Null sessions</li>
+            <li>SNMP enumeration basics</li>
+            <li>Enumerating users &amp; shares</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">enum4linux</span>
+            <span class="tool-tag">smbclient</span>
+            <span class="tool-tag">snmpwalk</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Enumerate SMB shares on a lab target</li>
+            <li>Explain why null sessions are a risk</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Run enum4linux against Metasploitable2, list discovered shares and usernames in a findings table.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s10">
+    <div class="session-head" onclick="toggle('s10')">
+      <span class="sid">EH-10</span>
+      <span class="stitle">Vulnerability Assessment</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 10 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Introduces automated vulnerability scanning — how testers translate an open service into a documented, ranked weakness.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>CVE / CVSS scoring basics</li>
+            <li>Vulnerability scanner architecture</li>
+            <li>False positives &amp; manual verification</li>
+            <li>Prioritizing findings by risk</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">OpenVAS</span>
+            <span class="tool-tag">Nessus Essentials</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Run a full vulnerability scan against a lab target</li>
+            <li>Rank three findings by CVSS severity</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Scan Metasploitable2 with OpenVAS; export the report and highlight the top 5 critical findings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <span class="ph-num">PHASE 03</span>
+    <span class="ph-name">Exploitation Concepts</span>
+    <span class="ph-meta">Sessions 11–16 · 12h</span>
+  </div>
+  <div class="phase-line"></div>
+
+  <div class="session" id="s11">
+    <div class="session-head" onclick="toggle('s11')">
+      <span class="sid">EH-11</span>
+      <span class="stitle">System Hacking Concepts — Authentication &amp; Password Attacks</span>
+      <span class="badge high">High Risk</span>
+      <span class="sday">Day 11 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Introduces how authentication can fail: weak passwords, hashing, and the basics of how password-cracking tools work — practiced only against lab-generated hashes.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Password hashing (MD5, SHA, bcrypt) basics</li>
+            <li>Dictionary vs brute-force attacks</li>
+            <li>Rainbow tables concept</li>
+            <li>Password policy defenses</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">John the Ripper</span>
+            <span class="tool-tag">Hashcat (intro)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Explain why hashing ≠ encryption</li>
+            <li>Crack a sample weak-password hash in the lab</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Use John the Ripper with rockyou.txt against instructor-provided sample hashes; document time-to-crack for weak vs medium passwords.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s12">
+    <div class="session-head" onclick="toggle('s12')">
+      <span class="sid">EH-12</span>
+      <span class="stitle">Malware Threats — Concepts &amp; Classification</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 12 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">A theory-focused session on how malware is classified and behaves. No malicious code is written or distributed — the focus is defensive awareness.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Viruses, worms, trojans, ransomware — definitions &amp; differences</li>
+            <li>Infection vectors &amp; propagation methods</li>
+            <li>Indicators of compromise (IOCs)</li>
+            <li>Antivirus &amp; EDR fundamentals</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">VirusTotal</span>
+            <span class="tool-tag">Any.Run (overview only)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Classify a malware sample by type from its behavior</li>
+            <li>List 3 common indicators of compromise</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Analyze a public VirusTotal report for a known malware family and summarize its behavior and IOCs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s13">
+    <div class="session-head" onclick="toggle('s13')">
+      <span class="sid">EH-13</span>
+      <span class="stitle">Sniffing — Traffic Capture &amp; Analysis</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 13 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Shows how unencrypted traffic can be intercepted on a local network, and why switching, encryption, and segmentation matter as defenses.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Promiscuous mode &amp; packet capture basics</li>
+            <li>ARP spoofing concept (lab-only demo)</li>
+            <li>Reading captured HTTP/FTP credentials</li>
+            <li>Defenses: switched networks, TLS, port security</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Wireshark</span>
+            <span class="tool-tag">tcpdump</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Capture and filter traffic in Wireshark</li>
+            <li>Identify plaintext credentials in a sample capture</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Capture FTP login traffic on the isolated lab network with Wireshark and locate the plaintext credentials in the stream.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s14">
+    <div class="session-head" onclick="toggle('s14')">
+      <span class="sid">EH-14</span>
+      <span class="stitle">Social Engineering</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 14 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Covers the human side of security — how attackers manipulate people, and how awareness training and policy reduce that risk.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Pretexting, phishing, baiting, tailgating</li>
+            <li>Anatomy of a phishing email</li>
+            <li>Authorized phishing simulations</li>
+            <li>Building a security-awareness culture</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">GoPhish (overview)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Spot red flags in a phishing email</li>
+            <li>Design an authorized awareness campaign outline</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Analyze 5 sample phishing emails and annotate every red flag found in each.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s15">
+    <div class="session-head" onclick="toggle('s15')">
+      <span class="sid">EH-15</span>
+      <span class="stitle">Denial-of-Service Concepts</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 15 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Explains how availability attacks work at a conceptual level and, more importantly, how services are architected to withstand them.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Volumetric vs application-layer DoS</li>
+            <li>DDoS &amp; botnet concept</li>
+            <li>Rate limiting &amp; traffic scrubbing defenses</li>
+            <li>Case study walkthrough (public incident)</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">hping3 (lab demo only)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Distinguish volumetric from application-layer attacks</li>
+            <li>Explain two mitigation strategies</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Observe an instructor-led, contained hping3 demo against a lab-only target and log the traffic pattern in Wireshark.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s16">
+    <div class="session-head" onclick="toggle('s16')">
+      <span class="sid">EH-16</span>
+      <span class="stitle">Session Hijacking Concepts</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 16 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Covers how session tokens and cookies can be stolen or predicted, and why secure session management matters for every web app.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Cookies &amp; session tokens explained</li>
+            <li>Session fixation vs hijacking</li>
+            <li>Secure/HttpOnly cookie flags</li>
+            <li>Defenses: token rotation, HTTPS everywhere</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Browser dev tools</span>
+            <span class="tool-tag">Burp Suite (intro)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Locate a session cookie in browser dev tools</li>
+            <li>Explain why the Secure flag matters</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Inspect session cookies on DVWA before/after login; identify missing security flags.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <span class="ph-num">PHASE 04</span>
+    <span class="ph-name">Web, Wireless &amp; Crypto</span>
+    <span class="ph-meta">Sessions 17–20 · 8h</span>
+  </div>
+  <div class="phase-line"></div>
+
+  <div class="session" id="s17">
+    <div class="session-head" onclick="toggle('s17')">
+      <span class="sid">EH-17</span>
+      <span class="stitle">Web Application Security Basics — OWASP Top 10</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 17 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">A guided tour of the ten most common web vulnerability categories, with a live look at each on the DVWA training app.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>OWASP Top 10 walkthrough</li>
+            <li>Broken access control &amp; misconfiguration</li>
+            <li>Cross-Site Scripting (XSS) concept</li>
+            <li>Input validation fundamentals</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">DVWA</span>
+            <span class="tool-tag">Burp Suite Community</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Name and describe 5 OWASP Top 10 categories</li>
+            <li>Trigger a basic reflected XSS in DVWA (low security)</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Complete the XSS and access-control modules in DVWA (low difficulty) and document the payloads used.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s18">
+    <div class="session-head" onclick="toggle('s18')">
+      <span class="sid">EH-18</span>
+      <span class="stitle">SQL Injection Fundamentals</span>
+      <span class="badge high">High Risk</span>
+      <span class="sday">Day 18 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">A focused, hands-on look at how unsanitized input lets attackers manipulate database queries — and how parameterized queries prevent it.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>How SQL queries are built from user input</li>
+            <li>Classic vs blind SQL injection concept</li>
+            <li>Authentication bypass via injection</li>
+            <li>Defenses: prepared statements, ORM, WAFs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">DVWA</span>
+            <span class="tool-tag">sqlmap (intro)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Craft a basic injection to bypass a login form</li>
+            <li>Explain how prepared statements neutralize the attack</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Bypass DVWA's login (low security) using a classic SQLi payload, then re-attempt at high security to observe the fix in action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s19">
+    <div class="session-head" onclick="toggle('s19')">
+      <span class="sid">EH-19</span>
+      <span class="stitle">Wireless Network Security Basics</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 19 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Covers how Wi-Fi security has evolved and where weaknesses remain, using an instructor-owned, isolated wireless lab.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>WEP vs WPA vs WPA2 vs WPA3</li>
+            <li>4-way handshake concept</li>
+            <li>Rogue access points &amp; evil twins</li>
+            <li>Wireless hardening best practices</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">Aircrack-ng suite (overview)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Explain why WEP is fundamentally broken</li>
+            <li>Identify a rogue AP scenario</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Instructor-led demo: capture a WPA2 handshake on the isolated lab AP and inspect it with Aircrack-ng (no external cracking of live networks).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s20">
+    <div class="session-head" onclick="toggle('s20')">
+      <span class="sid">EH-20</span>
+      <span class="stitle">Cryptography Basics</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 20 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Grounds students in the crypto concepts referenced throughout the course: symmetric vs asymmetric encryption, hashing, and PKI.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Symmetric vs asymmetric encryption</li>
+            <li>Hashing vs encryption (recap &amp; deepen)</li>
+            <li>Digital certificates &amp; PKI basics</li>
+            <li>Common crypto mistakes</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">OpenSSL (CLI)</span>
+            <span class="tool-tag">CyberChef</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Generate a key pair with OpenSSL</li>
+            <li>Explain how HTTPS certificates establish trust</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Use OpenSSL to generate an RSA key pair and encrypt/decrypt a sample file; inspect a live site's certificate chain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase">
+    <span class="ph-num">PHASE 05</span>
+    <span class="ph-name">Defense &amp; Capstone</span>
+    <span class="ph-meta">Sessions 21–22 · 4h</span>
+  </div>
+  <div class="phase-line"></div>
+
+  <div class="session" id="s21">
+    <div class="session-head" onclick="toggle('s21')">
+      <span class="sid">EH-21</span>
+      <span class="stitle">Firewalls, IDS/IPS &amp; Honeypot Concepts</span>
+      <span class="badge low">Low Risk</span>
+      <span class="sday">Day 21 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Flips the course's perspective from attacker to defender: how the techniques taught so far are detected, logged, and blocked.</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>Firewall types &amp; rule basics</li>
+            <li>Signature vs anomaly-based IDS/IPS</li>
+            <li>Honeypots &amp; deception concepts</li>
+            <li>Log review fundamentals</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">iptables/ufw</span>
+            <span class="tool-tag">Snort (overview)</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Write a basic firewall rule</li>
+            <li>Explain how an IDS would flag an earlier lab's Nmap scan</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON</h4>
+          <p>Configure a ufw ruleset to block a specific port; re-run the Session 8 Nmap scan and observe the result.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session" id="s22">
+    <div class="session-head" onclick="toggle('s22')">
+      <span class="sid">EH-22</span>
+      <span class="stitle">Capstone Lab, Reporting &amp; Career Paths</span>
+      <span class="badge med">Medium Risk</span>
+      <span class="sday">Day 22 · 2h</span>
+      <span class="chevron">▸</span>
+    </div>
+    <div class="session-body">
+      <div class="session-body-inner">
+        <div class="col">
+          <h4>Overview</h4>
+          <p class="desc">Brings every phase together in one guided mini-engagement against the lab environment, closing with how to document findings professionally and where to go next (CEH, OSCP, Security+).</p>
+          <h4>Topics Covered</h4>
+          <ul>
+            <li>End-to-end mini penetration test (recon → report)</li>
+            <li>Executive summary vs technical findings</li>
+            <li>Remediation recommendations</li>
+            <li>Certification &amp; career roadmap (CEH, OSCP, Security+)</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tools Introduced</h4>
+          <div class="tool-list">
+            <span class="tool-tag">All prior course tools</span>
+            <span class="tool-tag">Report template</span>
+          </div>
+          <h4 style="margin-top:16px;">Learning Objectives</h4>
+          <ul>
+            <li>Chain recon → scan → enumerate → report on a lab target</li>
+            <li>Produce a client-ready findings summary</li>
+          </ul>
+        </div>
+        <div class="lab-box">
+          <h4>// HANDS-ON — CAPSTONE</h4>
+          <p>Run a full mini-assessment against a fresh Metasploitable2 instance and submit a written report: scope, methodology, findings ranked by severity, and remediation steps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div>ETHICAL HACKING FUNDAMENTALS · EH-101 · 44:00:00 TOTAL RUNTIME</div>
+  <div>FOR AUTHORIZED TRAINING &amp; LAB USE ONLY</div>
+</footer>
+
+<script>
+  function toggle(id){
+    document.getElementById(id).classList.toggle('open');
+    syncMaxHeight(id);
+  }
+  function syncMaxHeight(id){
+    const el = document.getElementById(id);
+    const body = el.querySelector('.session-body');
+    if(el.classList.contains('open')){
+      body.style.maxHeight = body.scrollHeight + 'px';
+    } else {
+      body.style.maxHeight = '0px';
+    }
+  }
+  let allOpen = false;
+  function toggleAll(){
+    const sessions = document.querySelectorAll('.session');
+    allOpen = !allOpen;
+    sessions.forEach(s=>{
+      if(allOpen){ s.classList.add('open'); } else { s.classList.remove('open'); }
+      syncMaxHeight(s.id);
+    });
+    document.querySelector('.toggle-all').textContent = allOpen ? 'COLLAPSE ALL' : 'EXPAND ALL';
+  }
+  // open first session by default
+  document.addEventListener('DOMContentLoaded', ()=>{ toggle('s1'); });
+</script>
+
+</body>
+</html>
